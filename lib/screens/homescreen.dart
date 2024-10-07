@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:pit_stop/utilities.dart';
 
 class Homescreen extends StatelessWidget {
   const Homescreen({super.key});
@@ -6,17 +7,20 @@ class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      appBar: AppBar(
+        backgroundColor: Colors.black.withBlue(10),
+      ),
       body: SingleChildScrollView(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             Stack(
-              alignment: AlignmentDirectional.centerStart,
               children: [
                 Image.asset(
-                  'maxverpf1.jpg',
+                  'assets/maxverpf1.jpg',
                   height: 300,
-                  width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
                 ),
                 Container(
                   child: Column(
@@ -24,70 +28,70 @@ class Homescreen extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Icon(Icons.tour_rounded),
-                      Text('Leader'),
-                      Text('Verstapen'),
-                      Text('Red Bull'),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      Text('331'),
-                      Text('pts'),
+                      myText('Leader', context: context),
+                      myText('Verstappen', context: context),
+                      myText('Red Bull', context: context),
+                      SizedBox(height: 50),
+                      myText('331', context: context),
+                      myText('pts', context: context),
                     ],
                   ),
                 ),
               ],
             ),
-            SizedBox(
-              height: 20,
-            ),
             Stack(
-              alignment: AlignmentDirectional.centerStart,
               children: [
                 Image.asset(
-                  'mclarenf1.jpg',
+                  'assets/mclarenf1.jpg',
                   height: 300,
-                  width: double.infinity,
+                  width: MediaQuery.of(context).size.width,
+                  fit: BoxFit.cover,
                 ),
                 Container(
                   child: Column(
-                    mainAxisAlignment: MainAxisAlignment.center,
+                    crossAxisAlignment: CrossAxisAlignment.center,
+                    mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       Icon(Icons.tour_rounded),
-                      Text('Leader'),
-                      Text('McLaren'),
-                      Text('Nor / Pia'),
-                      SizedBox(
-                        height: 50,
-                      ),
-                      Text('364'),
-                      Text('pts'),
+                      myText('Leader', context: context,textColor: Colors.white),
+                      myText('Verstappen', context: context,textColor: Colors.white),
+                      myText('Red Bull', context: context,textColor: Colors.white),
+                      SizedBox(height: 50),
+                      myText('331', context: context,textColor: Colors.white),
+                      myText('pts', context: context,textColor: Colors.white),
                     ],
                   ),
                 ),
               ],
             ),
-            SizedBox(
-              height: 30,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.start,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text('18/24 Grand Prix Completed'),
-                Row(
-                  children: [
-                    Column(
-                      children: [
-                        Text('1082 Laps'),
-                        Text('Completed'),
-                      ],
-                    ),
-                    Column(
-                      children: [Text('5,480.9 km'), Text('Distance Covered')],
-                    )
-                  ],
-                )
-              ],
+            Padding(
+              padding: const EdgeInsets.all(20.0),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.center,
+                children: [
+                  myText('18/24 Grand Prix Completed', textColor: Colors.white, context: context),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          myText('1082 Laps', context: context, textColor: Colors.white,fontWeight: FontWeight.bold),
+                          myText('Completed', context: context, textColor: Colors.white),
+                        ],
+                      ),
+                      SizedBox(width: 20),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          myText('5,480.9 km', context: context, textColor: Colors.white),
+                          myText('Distance Covered', context: context, textColor: Colors.white),
+                        ],
+                      ),
+                    ],
+                  ),
+                ],
+              ),
             ),
           ],
         ),

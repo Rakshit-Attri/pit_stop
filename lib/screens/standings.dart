@@ -36,54 +36,60 @@ class _HomePageState extends State<Standings>
   @override
   Widget build(BuildContext context) {
     if (drivers.isNotEmpty) {
-      return Center(
-        child: Column(
-          children: [
-            TabBar(
-              controller: _tabController,
-              tabs: _tabs,
-              unselectedLabelColor: Colors.black,
-              labelColor: _selectedColor,
-              indicator: BoxDecoration(
-                borderRadius: BorderRadius.circular(80.0),
-                color: _selectedColor.withOpacity(0.2),
-              ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: drivers.length,
-                itemBuilder: (ctx, index) => ListTile(
-                  leading: Column(
-                    children: [
-                      Text(drivers[index].number),
-                    ],
-                  ),
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        children: [
-                          Text(drivers[index].name),
-                          Text(drivers[index].team),
-                        ],
-                      ),
-                      Column(
-                        children: [
-                          Text(drivers[index].points),
-                          Text('pts'),
-                        ],
-                      ),
-                    ],
-                  ),
-                  /* onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                builder: (ctx) =>
-                    PlacesDetailsScreen(place: widget.places[index])));
-                      },*/
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black.withBlue(10),
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              TabBar(
+               splashFactory: NoSplash.splashFactory,
+                controller: _tabController,
+                tabs: _tabs,
+                unselectedLabelColor: Colors.black,
+                labelColor: _selectedColor,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(80.0),
+                  color: _selectedColor.withOpacity(0.2),
                 ),
               ),
-            ),
-          ],
+              Expanded(
+                child: ListView.builder(
+                  itemCount: drivers.length,
+                  itemBuilder: (ctx, index) => ListTile(
+                    leading: Column(
+                      children: [
+                        Text(drivers[index].number),
+                      ],
+                    ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Text(drivers[index].name),
+                            Text(drivers[index].team),
+                          ],
+                        ),
+                        Column(
+                          children: [
+                            Text(drivers[index].points),
+                            Text('pts'),
+                          ],
+                        ),
+                      ],
+                    ),
+                    /* onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                  builder: (ctx) =>
+                      PlacesDetailsScreen(place: widget.places[index])));
+                        },*/
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }

@@ -36,50 +36,55 @@ class _HomePageState extends State<Schedule>
   @override
   Widget build(BuildContext context) {
     if (upcomingRaces.isNotEmpty) {
-      return Center(
-        child: Column(
-          children: [
-            TabBar(
-              controller: _tabController,
-              tabs: _tabs,
-              unselectedLabelColor: Colors.black,
-              labelColor: _selectedColor,
-              indicator: BoxDecoration(
-                borderRadius: BorderRadius.circular(80.0),
-                color: _selectedColor.withOpacity(0.2),
-              ),
-            ),
-            Expanded(
-              child: ListView.builder(
-                itemCount: upcomingRaces.length,
-                itemBuilder: (ctx, index) => ListTile(
-                  leading: Column(
-                    children: [
-                      Text(upcomingRaces[index].day),
-                      Text(upcomingRaces[index].month),
-                    ],
-                  ),
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                    children: [
-                      Column(
-                        children: [
-                          Text(upcomingRaces[index].round),
-                          Text(upcomingRaces[index].title),
-                          Text(upcomingRaces[index].city),
-                        ],
-                      ),
-                    ],
-                  ),
-                  /* onTap: () {
-                        Navigator.of(context).push(MaterialPageRoute(
-                builder: (ctx) =>
-                    PlacesDetailsScreen(place: widget.places[index])));
-                      },*/
+      return Scaffold(
+        appBar: AppBar(
+          backgroundColor: Colors.black.withBlue(10),
+        ),
+        body: Center(
+          child: Column(
+            children: [
+              TabBar(
+                controller: _tabController,
+                tabs: _tabs,
+                unselectedLabelColor: Colors.black,
+                labelColor: _selectedColor,
+                indicator: BoxDecoration(
+                  borderRadius: BorderRadius.circular(80.0),
+                  color: _selectedColor.withOpacity(0.2),
                 ),
               ),
-            ),
-          ],
+              Expanded(
+                child: ListView.builder(
+                  itemCount: upcomingRaces.length,
+                  itemBuilder: (ctx, index) => ListTile(
+                    leading: Column(
+                      children: [
+                        Text(upcomingRaces[index].day),
+                        Text(upcomingRaces[index].month),
+                      ],
+                    ),
+                    title: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                      children: [
+                        Column(
+                          children: [
+                            Text(upcomingRaces[index].round),
+                            Text(upcomingRaces[index].title),
+                            Text(upcomingRaces[index].city),
+                          ],
+                        ),
+                      ],
+                    ),
+                    /* onTap: () {
+                          Navigator.of(context).push(MaterialPageRoute(
+                  builder: (ctx) =>
+                      PlacesDetailsScreen(place: widget.places[index])));
+                        },*/
+                  ),
+                ),
+              ),
+            ],
+          ),
         ),
       );
     }
