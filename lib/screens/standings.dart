@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pit_stop/data/standings_data.dart';
+import 'package:pit_stop/utilities.dart';
 
 //import 'material_design_indicator.dart';
 
@@ -44,7 +45,7 @@ class _HomePageState extends State<Standings>
           child: Column(
             children: [
               TabBar(
-               splashFactory: NoSplash.splashFactory,
+                splashFactory: NoSplash.splashFactory,
                 controller: _tabController,
                 tabs: _tabs,
                 unselectedLabelColor: Colors.black,
@@ -60,7 +61,10 @@ class _HomePageState extends State<Standings>
                   itemBuilder: (ctx, index) => ListTile(
                     leading: Column(
                       children: [
-                        Text(drivers[index].number),
+                        myText(drivers[index].number,
+                            textColor: Colors.white,
+                            context: context,
+                            fontSize: 22),
                       ],
                     ),
                     title: Row(
@@ -68,14 +72,26 @@ class _HomePageState extends State<Standings>
                       children: [
                         Column(
                           children: [
-                            Text(drivers[index].name),
-                            Text(drivers[index].team),
+                            myText(drivers[index].name,
+                                textColor: Colors.white,
+                                context: context,
+                                fontSize: 20),
+                            myText(drivers[index].team,
+                                textColor: Colors.white,
+                                context: context,
+                                fontSize: 18),
                           ],
                         ),
                         Column(
                           children: [
-                            Text(drivers[index].points),
-                            Text('pts'),
+                            myText(drivers[index].points,
+                                textColor: Colors.white,
+                                context: context,
+                                fontSize: 16),
+                            myText('pts',
+                                textColor: Colors.white,
+                                context: context,
+                                fontSize: 16),
                           ],
                         ),
                       ],

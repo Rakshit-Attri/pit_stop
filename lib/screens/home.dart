@@ -14,9 +14,9 @@ class _HomeState extends State<Home> {
   int _currentIndex = 0;
 
   final List<Widget> _children = [
-    Homescreen(), // Assuming you have a HomeScreen widget in home.dart
+    Homescreen(),
     Schedule(),
-    Standings(), // Assuming you have a StandingsScreen widget in standings.dart
+    Standings(),
   ];
 
   void onTabTapped(int index) {
@@ -31,6 +31,10 @@ class _HomeState extends State<Home> {
       body: _children[_currentIndex],
       bottomNavigationBar: BottomNavigationBar(
         onTap: onTabTapped,
+        selectedItemColor: Colors.orange[800],
+        unselectedItemColor: Colors.blue[800],
+        elevation: 3,
+        backgroundColor: Colors.transparent,
         currentIndex: _currentIndex,
         items: [
           BottomNavigationBarItem(

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pit_stop/data/schedules_data.dart';
+import 'package:pit_stop/utilities.dart';
 
 //import 'material_design_indicator.dart';
 
@@ -59,8 +60,10 @@ class _HomePageState extends State<Schedule>
                   itemBuilder: (ctx, index) => ListTile(
                     leading: Column(
                       children: [
-                        Text(upcomingRaces[index].day),
-                        Text(upcomingRaces[index].month),
+                        myText(upcomingRaces[index].day,
+                            textColor: Colors.grey[350], context: context),
+                        myText(upcomingRaces[index].month,
+                            textColor: Colors.grey[350], context: context),
                       ],
                     ),
                     title: Row(
@@ -68,9 +71,19 @@ class _HomePageState extends State<Schedule>
                       children: [
                         Column(
                           children: [
-                            Text(upcomingRaces[index].round),
-                            Text(upcomingRaces[index].title),
-                            Text(upcomingRaces[index].city),
+                            myText(upcomingRaces[index].round,
+                                textColor: Colors.amber[200],
+                                context: context,
+                                fontSize: 16),
+                            myText(upcomingRaces[index].title,
+                                textColor: Colors.green,
+                                context: context,
+                                fontWeight: FontWeight.bold,
+                                fontSize: 18),
+                            myText(upcomingRaces[index].city,
+                                textColor: Colors.deepOrange[300],
+                                context: context,
+                                fontSize: 16),
                           ],
                         ),
                       ],
