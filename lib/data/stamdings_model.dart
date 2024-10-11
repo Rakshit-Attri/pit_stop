@@ -11,3 +11,18 @@ class Driver {
     required this.points,
   });
 }
+
+// added team model 
+class Team {
+  final String position;
+  final String name;
+  final String points;
+  final String wins;
+
+  Team({
+    required this.position,
+    required this.name,
+    required this.points,
+    required this.wins,
+  });
+}

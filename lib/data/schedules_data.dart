@@ -18,3 +18,22 @@ List<Race> upcomingRaces = [
     imageUrl: 'https://example.com/italy_gp.jpg',
   ),
 ];
+// added past races
+List<Race> pastRaces = [
+  Race(
+    day: '28',
+    month: 'October',
+    round: '20',
+    title: 'Mexico City GP',
+    city: 'Mexico',
+    imageUrl: 'https://example.com/italy_gp.jpg',
+  ),
+  Race(
+    day: '04',
+    month: 'November',
+    round: '21',
+    title: 'Sao Paulo GP',
+    city: 'Sao Paulo',
+    imageUrl: 'https://example.com/italy_gp.jpg',
+  ),
+];
