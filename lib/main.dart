@@ -1,10 +1,5 @@
-
-
 import 'package:flutter/material.dart';
 import 'package:pit_stop/screens/home.dart';
-
-
-
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -17,17 +12,16 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-          title: 'Pit_Stop',
-          debugShowCheckedModeBanner: false,
-          theme: ThemeData(
-            useMaterial3: false,
-            primarySwatch: Colors.blue,
-            visualDensity: VisualDensity.adaptivePlatformDensity,
-            scaffoldBackgroundColor:Colors.black.withBlue(10),
-          ),
-          // home: CallReceiveScreen()
-          home: Home() //SplashScreen1()
+        title: 'Pit_Stop',
+        debugShowCheckedModeBanner: false,
+        theme: ThemeData(
+          useMaterial3: false,
+          primarySwatch: Colors.blue,
+          visualDensity: VisualDensity.adaptivePlatformDensity,
+        ),
+        // home: CallReceiveScreen()
+        home: Home() //SplashScreen1()
 
-    );
+        );
   }
 }

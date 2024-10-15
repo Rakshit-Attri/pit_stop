@@ -1,5 +1,14 @@
 import 'package:flutter/material.dart';
 
+LinearGradient mainGradient = LinearGradient(
+  begin: Alignment.centerLeft,
+  end: Alignment.centerRight,
+  colors: [
+    const Color.fromARGB(255, 57, 134, 219),
+    const Color.fromARGB(255, 44, 187, 232).withOpacity(0.88),
+  ],
+);
+
 Text myText(
   data, {
   required context,
