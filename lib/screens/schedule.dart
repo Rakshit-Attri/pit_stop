@@ -2,8 +2,11 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:pit_stop/data/schedules_data.dart';
-import 'package:pit_stop/screens/circute_detail_screen.dart';
+
 import 'package:pit_stop/utilities.dart';
+
+import '../data/schedule_model.dart';
+import 'circute_detail_screen.dart';
 
 class Schedule extends StatefulWidget {
   const Schedule({Key? key}) : super(key: key);
@@ -137,7 +140,7 @@ class _HomePageState extends State<Schedule>
                                           Navigator.of(context).push(
                                               MaterialPageRoute(
                                                   builder: (ctx) =>
-                                                      CircuteDetailScreen(
+                                                      CircuitDetail(
                                                         race: upcomingRaces[
                                                             index],
                                                       )));
@@ -241,7 +244,7 @@ class _HomePageState extends State<Schedule>
                                                     Navigator.of(context).push(
                                                         MaterialPageRoute(
                                                             builder: (ctx) =>
-                                                                CircuteDetailScreen(
+                                                               CircuitDetail(
                                                                   race:
                                                                       pastRaces[
                                                                           index],
