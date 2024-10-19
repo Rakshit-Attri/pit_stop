@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:pit_stop/data/schedules_data.dart';
+import 'package:pit_stop/screens/circute_detail_screen.dart';
 import 'package:pit_stop/utilities.dart';
 
 class Schedule extends StatefulWidget {
@@ -38,7 +39,7 @@ class _HomePageState extends State<Schedule>
     return Scaffold(
       appBar: AppBar(
         elevation: 10,
-        backgroundColor: Colors.transparent.withOpacity(0.9),
+        backgroundColor: Colors.transparent.withOpacity(1),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -104,28 +105,43 @@ class _HomePageState extends State<Schedule>
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            Column(
-                                              children: [
-                                                myText(
-                                                    upcomingRaces[index].round,
-                                                    textColor: Colors.white,
-                                                    context: context,
-                                                    fontSize: 16),
-                                                myText(
-                                                    upcomingRaces[index].title,
-                                                    textColor: Colors.white,
-                                                    context: context,
-                                                    fontWeight: FontWeight.bold,
-                                                    fontSize: 18),
-                                                myText(
-                                                    upcomingRaces[index].city,
-                                                    textColor: Colors.white,
-                                                    context: context,
-                                                    fontSize: 16),
-                                              ],
+                                            Container(
+                                              width: 200,
+                                              child: Column(
+                                                children: [
+                                                  myText(
+                                                      upcomingRaces[index]
+                                                          .round,
+                                                      textColor: Colors.white,
+                                                      context: context,
+                                                      fontSize: 16),
+                                                  myText(
+                                                      upcomingRaces[index]
+                                                          .title,
+                                                      textColor: Colors.white,
+                                                      context: context,
+                                                      fontWeight:
+                                                          FontWeight.bold,
+                                                      fontSize: 18),
+                                                  myText(
+                                                      upcomingRaces[index].city,
+                                                      textColor: Colors.white,
+                                                      context: context,
+                                                      fontSize: 16),
+                                                ],
+                                              ),
                                             ),
                                           ],
                                         ),
+                                        onTap: () {
+                                          Navigator.of(context).push(
+                                              MaterialPageRoute(
+                                                  builder: (ctx) =>
+                                                      CircuteDetailScreen(
+                                                        race: upcomingRaces[
+                                                            index],
+                                                      )));
+                                        },
                                       ),
                                     ),
                                   ),
@@ -182,36 +198,55 @@ class _HomePageState extends State<Schedule>
                                                         MainAxisAlignment
                                                             .spaceEvenly,
                                                     children: [
-                                                      Column(
-                                                        children: [
-                                                          myText(
-                                                              pastRaces[index]
-                                                                  .round,
-                                                              textColor:
-                                                                  Colors.white,
-                                                              context: context,
-                                                              fontSize: 16),
-                                                          myText(
-                                                              pastRaces[index]
-                                                                  .title,
-                                                              textColor:
-                                                                  Colors.white,
-                                                              context: context,
-                                                              fontWeight:
-                                                                  FontWeight
-                                                                      .bold,
-                                                              fontSize: 18),
-                                                          myText(
-                                                              pastRaces[index]
-                                                                  .city,
-                                                              textColor:
-                                                                  Colors.white,
-                                                              context: context,
-                                                              fontSize: 16),
-                                                        ],
+                                                      Container(
+                                                        width: 200,
+                                                        child: Column(
+                                                          children: [
+                                                            myText(
+                                                                pastRaces[index]
+                                                                    .round,
+                                                                textColor:
+                                                                    Colors
+                                                                        .white,
+                                                                context:
+                                                                    context,
+                                                                fontSize: 16),
+                                                            myText(
+                                                                pastRaces[index]
+                                                                    .title,
+                                                                textColor:
+                                                                    Colors
+                                                                        .white,
+                                                                context:
+                                                                    context,
+                                                                fontWeight:
+                                                                    FontWeight
+                                                                        .bold,
+                                                                fontSize: 18),
+                                                            myText(
+                                                                pastRaces[index]
+                                                                    .city,
+                                                                textColor:
+                                                                    Colors
+                                                                        .white,
+                                                                context:
+                                                                    context,
+                                                                fontSize: 16),
+                                                          ],
+                                                        ),
                                                       ),
                                                     ],
                                                   ),
+                                                  onTap: () {
+                                                    Navigator.of(context).push(
+                                                        MaterialPageRoute(
+                                                            builder: (ctx) =>
+                                                                CircuteDetailScreen(
+                                                                  race:
+                                                                      pastRaces[
+                                                                          index],
+                                                                )));
+                                                  },
                                                 ),
                                               ))))
                                 ]))

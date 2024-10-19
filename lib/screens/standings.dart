@@ -1,7 +1,10 @@
 import 'dart:ui';
 
 import 'package:flutter/material.dart';
+
 import 'package:pit_stop/data/standings_data.dart';
+import 'package:pit_stop/screens/driver_detail_screen.dart';
+import 'package:pit_stop/screens/team_detail_screen.dart';
 import 'package:pit_stop/utilities.dart';
 
 class Standings extends StatefulWidget {
@@ -38,7 +41,7 @@ class _StandingsState extends State<Standings>
     return Scaffold(
       appBar: AppBar(
         elevation: 10,
-        backgroundColor: Colors.transparent.withOpacity(0.9),
+        backgroundColor: Colors.transparent.withOpacity(1),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -108,25 +111,32 @@ class _StandingsState extends State<Standings>
                                                   title: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .spaceEvenly,
+                                                            .spaceBetween,
                                                     children: [
-                                                      Column(
-                                                        children: [
-                                                          myText(
-                                                              drivers[index]
-                                                                  .name,
-                                                              textColor:
-                                                                  Colors.white,
-                                                              context: context,
-                                                              fontSize: 20),
-                                                          myText(
-                                                              drivers[index]
-                                                                  .team,
-                                                              textColor:
-                                                                  Colors.white,
-                                                              context: context,
-                                                              fontSize: 18),
-                                                        ],
+                                                      Container(
+                                                        width: 200,
+                                                        child: Column(
+                                                          children: [
+                                                            myText(
+                                                                drivers[index]
+                                                                    .name,
+                                                                textColor:
+                                                                    Colors
+                                                                        .white,
+                                                                context:
+                                                                    context,
+                                                                fontSize: 20),
+                                                            myText(
+                                                                drivers[index]
+                                                                    .team,
+                                                                textColor:
+                                                                    Colors
+                                                                        .white,
+                                                                context:
+                                                                    context,
+                                                                fontSize: 18),
+                                                          ],
+                                                        ),
                                                       ),
                                                       Column(
                                                         children: [
@@ -146,6 +156,16 @@ class _StandingsState extends State<Standings>
                                                       ),
                                                     ],
                                                   ),
+                                                  onTap: () {
+                                                    Navigator.of(context).push(
+                                                        MaterialPageRoute(
+                                                            builder: (ctx) =>
+                                                                DriverDetailScreen(
+                                                                  driver:
+                                                                      drivers[
+                                                                          index],
+                                                                )));
+                                                  },
                                                 ),
                                               ))))
                                 ]))
@@ -191,24 +211,32 @@ class _StandingsState extends State<Standings>
                                                   title: Row(
                                                     mainAxisAlignment:
                                                         MainAxisAlignment
-                                                            .spaceEvenly,
+                                                            .spaceBetween,
                                                     children: [
-                                                      Column(
-                                                        children: [
-                                                          myText(
-                                                              teams[index].name,
-                                                              textColor:
-                                                                  Colors.white,
-                                                              context: context,
-                                                              fontSize: 20),
-                                                          myText(
-                                                              teams[index]
-                                                                  .points,
-                                                              textColor:
-                                                                  Colors.white,
-                                                              context: context,
-                                                              fontSize: 16),
-                                                        ],
+                                                      Container(
+                                                        width: 200,
+                                                        child: Column(
+                                                          children: [
+                                                            myText(
+                                                                teams[index]
+                                                                    .name,
+                                                                textColor:
+                                                                    Colors
+                                                                        .white,
+                                                                context:
+                                                                    context,
+                                                                fontSize: 20),
+                                                            myText(
+                                                                teams[index]
+                                                                    .points,
+                                                                textColor:
+                                                                    Colors
+                                                                        .white,
+                                                                context:
+                                                                    context,
+                                                                fontSize: 16),
+                                                          ],
+                                                        ),
                                                       ),
                                                       Column(
                                                         children: [
@@ -227,6 +255,15 @@ class _StandingsState extends State<Standings>
                                                       ),
                                                     ],
                                                   ),
+                                                  onTap: () {
+                                                    Navigator.of(context).push(
+                                                        MaterialPageRoute(
+                                                            builder: (ctx) =>
+                                                                TeamDetailScreen(
+                                                                  team: teams[
+                                                                      index],
+                                                                )));
+                                                  },
                                                 ),
                                               ))))
                                 ]))

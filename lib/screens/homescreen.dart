@@ -7,9 +7,10 @@ class Homescreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.black,
       appBar: AppBar(
         elevation: 10,
-        backgroundColor: Colors.transparent.withOpacity(0.9),
+        backgroundColor: Colors.transparent.withOpacity(1),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -178,6 +179,9 @@ class Homescreen extends StatelessWidget {
                     ),
                   ),
                 ),
+                SizedBox(
+                  height: 50,
+                )
               ],
             ),
           ),
