@@ -5,7 +5,7 @@ import 'package:pit_stop/data/schedules_data.dart';
 
 import 'package:pit_stop/utilities.dart';
 
-import '../data/schedule_model.dart';
+//import '../data/schedule_model.dart';
 import 'circute_detail_screen.dart';
 
 class Schedule extends StatefulWidget {
