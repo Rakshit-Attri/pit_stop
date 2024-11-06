@@ -1,3 +1,4 @@
+import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:pit_stop/utilities.dart';
 
@@ -24,102 +25,114 @@ class Homescreen extends StatelessWidget {
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(25),
-                  child: Stack(
-                    children: [
-                      Image.asset(
-                        'assets/maxverpf1.jpg',
-                        height: 300,
-                        width: MediaQuery.of(context).size.width,
-                        fit: BoxFit.cover,
-                      ),
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 40,
-                              ),
-                              myText('Leader',
-                                  context: context,
-                                  textColor: Colors.white,
-                                  fontSize: 20),
-                              myText('Verstappen',
-                                  context: context,
-                                  textColor: Colors.blue.shade800,
-                                  fontSize: 28),
-                              myText('Red Bull',
-                                  context: context,
-                                  textColor: Colors.red[900],
-                                  fontSize: 24),
-                              SizedBox(height: 40),
-                              myText('331',
-                                  context: context,
-                                  textColor: Colors.deepOrange[600],
-                                  fontSize: 20),
-                              myText('pts', context: context, fontSize: 16),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
+                CarouselSlider(
+                  options: CarouselOptions(
+                    height: 300,
+                    autoPlay: true,
+                    autoPlayInterval: const Duration(seconds: 3),
+                    enlargeCenterPage: true,
+                    enableInfiniteScroll: true,
+                    viewportFraction: 1,
                   ),
+                  items: [
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(25),
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            'assets/maxverpf1.jpg',
+                            height: 300,
+                            width: MediaQuery.of(context).size.width,
+                            fit: BoxFit.cover,
+                          ),
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 40,
+                                  ),
+                                  myText('Leader',
+                                      context: context,
+                                      textColor: Colors.white,
+                                      fontSize: 20),
+                                  myText('Verstappen',
+                                      context: context,
+                                      textColor: Colors.blue.shade800,
+                                      fontSize: 28),
+                                  myText('Red Bull',
+                                      context: context,
+                                      textColor: Colors.red[900],
+                                      fontSize: 24),
+                                  SizedBox(height: 40),
+                                  myText('331',
+                                      context: context,
+                                      textColor: Colors.deepOrange[600],
+                                      fontSize: 20),
+                                  myText('pts', context: context, fontSize: 16),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    ClipRRect(
+                      borderRadius: BorderRadius.circular(25),
+                      child: Stack(
+                        children: [
+                          Image.asset(
+                            'assets/mclarenf1.jpg',
+                            height: 300,
+                            width: MediaQuery.of(context).size.width,
+                            fit: BoxFit.cover,
+                          ),
+                          Container(
+                            child: Padding(
+                              padding: const EdgeInsets.all(10),
+                              child: Column(
+                                crossAxisAlignment: CrossAxisAlignment.start,
+                                mainAxisAlignment: MainAxisAlignment.start,
+                                children: [
+                                  SizedBox(
+                                    height: 40,
+                                  ),
+                                  Icon(Icons.tour_rounded),
+                                  myText('Leader',
+                                      context: context,
+                                      textColor: Colors.white,
+                                      fontSize: 20),
+                                  myText('McLaren',
+                                      context: context,
+                                      textColor: Colors.amber[800],
+                                      fontSize: 28),
+                                  myText('NOR/PIA',
+                                      context: context,
+                                      textColor: Colors.deepOrange[400],
+                                      fontSize: 24),
+                                  SizedBox(height: 50),
+                                  myText('331',
+                                      context: context,
+                                      textColor: Colors.deepOrange[600],
+                                      fontSize: 20),
+                                  myText('pts',
+                                      context: context,
+                                      textColor: Colors.white,
+                                      fontSize: 16),
+                                ],
+                              ),
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ],
                 ),
                 SizedBox(
                   height: 20,
-                ),
-                ClipRRect(
-                  borderRadius: BorderRadius.circular(25),
-                  child: Stack(
-                    children: [
-                      Image.asset(
-                        'assets/mclarenf1.jpg',
-                        height: 300,
-                        width: MediaQuery.of(context).size.width,
-                        fit: BoxFit.cover,
-                      ),
-                      Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.start,
-                            children: [
-                              SizedBox(
-                                height: 40,
-                              ),
-                              Icon(Icons.tour_rounded),
-                              myText('Leader',
-                                  context: context,
-                                  textColor: Colors.white,
-                                  fontSize: 20),
-                              myText('McLaren',
-                                  context: context,
-                                  textColor: Colors.amber[800],
-                                  fontSize: 28),
-                              myText('NOR/PIA',
-                                  context: context,
-                                  textColor: Colors.deepOrange[400],
-                                  fontSize: 24),
-                              SizedBox(height: 50),
-                              myText('331',
-                                  context: context,
-                                  textColor: Colors.deepOrange[600],
-                                  fontSize: 20),
-                              myText('pts',
-                                  context: context,
-                                  textColor: Colors.white,
-                                  fontSize: 16),
-                            ],
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
                 ),
                 Padding(
                   padding: EdgeInsets.all(20),
