@@ -1,10 +1,17 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:pit_stop/utilities.dart';
+import 'package:pit_stop/data/schedule_model.dart';
 
-class Homescreen extends StatelessWidget {
-  const Homescreen({super.key});
+class Homescreen extends StatefulWidget {
+  const Homescreen({super.key, required this.race});
+  final Race race;
 
+  @override
+  State<Homescreen> createState() => _HomescreenState();
+}
+
+class _HomescreenState extends State<Homescreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -130,6 +137,55 @@ class Homescreen extends StatelessWidget {
                       ),
                     ),
                   ],
+                ),
+                SizedBox(
+                  height: 20,
+                ),
+                ClipRRect(
+                  borderRadius: BorderRadius.circular(25),
+                  child: Stack(
+                    children: [
+                      Image.asset(
+                        'assets/mclarenf1.jpg',
+                        height: 300,
+                        width: MediaQuery.of(context).size.width,
+                        fit: BoxFit.cover,
+                      ),
+                      Container(
+                        child: Padding(
+                          padding: const EdgeInsets.all(10),
+                          child: Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            mainAxisAlignment: MainAxisAlignment.start,
+                            children: [
+                              SizedBox(
+                                height: 40,
+                              ),
+                          
+                              myText('Round ${widget.race.round}',
+                                  context: context,
+                                  textColor: Colors.white,
+                                  fontSize: 20),
+                              myText(widget.race.title,
+                                  context: context,
+                                  textColor: Colors.white,
+                                  fontSize: 28),
+                              myText(widget.race.city,
+                                  context: context,
+                                  textColor: Colors.white,
+                                  fontSize: 24),
+                              SizedBox(height: 50),
+                              myText(widget.race.duration,
+                                  context: context,
+                                  textColor: Colors.white,
+                                  fontSize: 20),
+                              //timer to be added 
+                            ],
+                          ),
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
                 SizedBox(
                   height: 20,
