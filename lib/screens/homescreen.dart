@@ -4,8 +4,8 @@ import 'package:pit_stop/utilities.dart';
 import 'package:pit_stop/data/schedule_model.dart';
 
 class Homescreen extends StatefulWidget {
-  const Homescreen({super.key, required this.race});
-  final Race race;
+  const Homescreen({super.key, });
+
 
   @override
   State<Homescreen> createState() => _HomescreenState();
@@ -162,23 +162,23 @@ class _HomescreenState extends State<Homescreen> {
                                 height: 40,
                               ),
                           
-                              myText('Round ${widget.race.round}',
-                                  context: context,
-                                  textColor: Colors.white,
-                                  fontSize: 20),
-                              myText(widget.race.title,
-                                  context: context,
-                                  textColor: Colors.white,
-                                  fontSize: 28),
-                              myText(widget.race.city,
-                                  context: context,
-                                  textColor: Colors.white,
-                                  fontSize: 24),
-                              SizedBox(height: 50),
-                              myText(widget.race.duration,
-                                  context: context,
-                                  textColor: Colors.white,
-                                  fontSize: 20),
+                              // myText('Round ${widget.race.round}',
+                              //     context: context,
+                              //     textColor: Colors.white,
+                              //     fontSize: 20),
+                              // myText(widget.race.title,
+                              //     context: context,
+                              //     textColor: Colors.white,
+                              //     fontSize: 28),
+                              // myText(widget.race.city,
+                              //     context: context,
+                              //     textColor: Colors.white,
+                              //     fontSize: 24),
+                              // SizedBox(height: 50),
+                              // myText(widget.race.duration,
+                              //     context: context,
+                              //     textColor: Colors.white,
+                              //     fontSize: 20),
                               //timer to be added 
                             ],
                           ),
