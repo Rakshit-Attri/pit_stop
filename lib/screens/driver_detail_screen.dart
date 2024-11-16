@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:pit_stop/utilities.dart';
+
 import '../data/stamdings_model.dart';
 
 class DriverDetailScreen extends StatelessWidget {

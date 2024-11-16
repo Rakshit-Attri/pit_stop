@@ -2,6 +2,7 @@ import 'dart:ui';
 
 import 'package:flutter/material.dart';
 import 'package:pit_stop/data/schedules_data.dart';
+import 'package:pit_stop/screens/race_details_screem.dart';
 
 import 'package:pit_stop/utilities.dart';
 
@@ -244,7 +245,7 @@ class _HomePageState extends State<Schedule>
                                                     Navigator.of(context).push(
                                                         MaterialPageRoute(
                                                             builder: (ctx) =>
-                                                               CircuitDetail(
+                                                                RaceDetail(
                                                                   race:
                                                                       pastRaces[
                                                                           index],

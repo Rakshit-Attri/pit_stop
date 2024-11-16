@@ -4,8 +4,9 @@ import 'package:pit_stop/utilities.dart';
 import 'package:pit_stop/data/schedule_model.dart';
 
 class Homescreen extends StatefulWidget {
-  const Homescreen({super.key, });
-
+  const Homescreen({
+    super.key,
+  });
 
   @override
   State<Homescreen> createState() => _HomescreenState();
@@ -19,6 +20,25 @@ class _HomescreenState extends State<Homescreen> {
       appBar: AppBar(
         elevation: 10,
         backgroundColor: Colors.transparent.withOpacity(1),
+      ),
+      drawer: Drawer(
+        elevation: 10,
+        backgroundColor: const Color.fromARGB(159, 0, 0, 0),
+        child: ListView(
+          children: [
+            DrawerHeader(
+                child: Text(
+              'username',
+              style: TextStyle(color: Colors.white),
+            )),
+            ListTile(
+              title: Text(
+                'Log out',
+                style: TextStyle(color: Colors.white),
+              ),
+            )
+          ],
+        ),
       ),
       body: Container(
         decoration: BoxDecoration(
@@ -161,7 +181,7 @@ class _HomescreenState extends State<Homescreen> {
                               SizedBox(
                                 height: 40,
                               ),
-                          
+
                               // myText('Round ${widget.race.round}',
                               //     context: context,
                               //     textColor: Colors.white,
@@ -179,7 +199,7 @@ class _HomescreenState extends State<Homescreen> {
                               //     context: context,
                               //     textColor: Colors.white,
                               //     fontSize: 20),
-                              //timer to be added 
+                              //timer to be added
                             ],
                           ),
                         ),
