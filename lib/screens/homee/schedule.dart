@@ -10,7 +10,7 @@ import 'package:pit_stop/utils/essentials.dart';
 import 'circute_detail_screen.dart';
 
 class Schedule extends StatefulWidget {
-  const Schedule({Key? key}) : super(key: key);
+  const Schedule({super.key});
 
   @override
   _HomePageState createState() => _HomePageState();
@@ -22,8 +22,8 @@ class _HomePageState extends State<Schedule>
 
   final _selectedColor = Colors.white;
   final _tabs = [
-    Tab(text: 'Upcoming'),
-    Tab(text: 'Past'),
+    const Tab(text: 'Upcoming'),
+    const Tab(text: 'Past'),
   ];
 
   @override
@@ -46,8 +46,8 @@ class _HomePageState extends State<Schedule>
         backgroundColor: Colors.transparent.withOpacity(1),
       ),
       body: Container(
-        decoration: BoxDecoration(
-            gradient: const RadialGradient(
+        decoration: const BoxDecoration(
+            gradient: RadialGradient(
           colors: [Colors.black87, Colors.black],
           radius: 0.65,
         )),
@@ -79,7 +79,7 @@ class _HomePageState extends State<Schedule>
                             itemBuilder: (ctx, index) => Stack(children: [
                               ClipRRect(
                                 borderRadius:
-                                    BorderRadius.all(Radius.circular(25)),
+                                    const BorderRadius.all(Radius.circular(25)),
                                 child: BackdropFilter(
                                   filter:
                                       ImageFilter.blur(sigmaX: 5, sigmaY: 5),
@@ -109,7 +109,7 @@ class _HomePageState extends State<Schedule>
                                           mainAxisAlignment:
                                               MainAxisAlignment.spaceEvenly,
                                           children: [
-                                            Container(
+                                            SizedBox(
                                               width: 200,
                                               child: Column(
                                                 children: [
@@ -153,7 +153,7 @@ class _HomePageState extends State<Schedule>
                               ),
                             ]),
                           )
-                        : Center(
+                        : const Center(
                             child: Text(
                                 'No upcoming races')), // Placeholder when list is empty
 
@@ -164,7 +164,7 @@ class _HomePageState extends State<Schedule>
                             itemBuilder: (ctx, index) => Stack(children: [
                                   ClipRRect(
                                       borderRadius:
-                                          BorderRadius.all(Radius.circular(25)),
+                                          const BorderRadius.all(Radius.circular(25)),
                                       child: BackdropFilter(
                                           filter: ImageFilter.blur(
                                               sigmaX: 5, sigmaY: 5),
@@ -202,7 +202,7 @@ class _HomePageState extends State<Schedule>
                                                         MainAxisAlignment
                                                             .spaceEvenly,
                                                     children: [
-                                                      Container(
+                                                      SizedBox(
                                                         width: 200,
                                                         child: Column(
                                                           children: [
@@ -254,7 +254,7 @@ class _HomePageState extends State<Schedule>
                                                 ),
                                               ))))
                                 ]))
-                        : Center(
+                        : const Center(
                             child: Text(
                                 'No past races')), // Placeholder when list is empty
                   ],

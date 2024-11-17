@@ -312,7 +312,7 @@ class E {
               : null,
           labelText: label,
           labelStyle: TextStyle(
-            color: Primary.black,
+            color: Primary.white,
             fontSize: 16,
             fontWeight: FontWeight.w300,
           ),

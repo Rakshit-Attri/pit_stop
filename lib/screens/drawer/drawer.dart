@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-
-import '../../Providers/UserAuth.dart';
+import '../../providers/UserAuth.dart';
 import '../../main.dart';
 import '../../utils/colors.dart';
 import '../../utils/essentials.dart';
@@ -11,7 +10,6 @@ import '../../utils/image_constants.dart';
 import 'package:provider/provider.dart';
 
 import '../../widgets/cached_image.dart';
-import 'drawerItems/VerificationScreen.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});
@@ -33,7 +31,8 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Primary.white,
+      backgroundColor: Colors.transparent,
+      elevation: 10,
       width: E.width(context) - 58,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 38, 16, 0),
@@ -65,7 +64,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                         '(406) 555-0120',
                         context: context,
                         fontSize: 14,
-                        color: Primary.darkGrey,
+                        color: Primary.white,
                       ),
                     ],
                   ),
@@ -77,7 +76,6 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                 padding: EdgeInsets.zero,
                 children: [
                   ...HelperFunctions.getSpacedChildren(items: [
-
                     drawerItem(
                       context,
                       icon: ImageConstant.google,

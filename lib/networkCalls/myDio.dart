@@ -1,5 +1,5 @@
 import 'package:dio/dio.dart';
-import '../Providers/UserAuth.dart';
+import '../providers/UserAuth.dart';
 
 class MyDio {
   late Dio _dio;

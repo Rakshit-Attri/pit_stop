@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:pit_stop/screens/onboarding/splashScreen.dart';
 import 'package:provider/provider.dart';
 
-import 'Providers/UserAuth.dart';
+import 'providers/UserAuth.dart';
 
 final navigatorKey = GlobalKey<NavigatorState>();
 void main() async {

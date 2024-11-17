@@ -58,52 +58,58 @@ class _ForgotScreenState extends State<ForgotScreen> {
       },
       child: Scaffold(
         resizeToAvoidBottomInset: false,
-        body: Stack(children: [
-          SvgPicture.asset(
-            "assets/Graphic.svg",
-            fit: BoxFit.cover,
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                E.heightSpacer(140),
-                E.myText('FORGOT PASSWORD', context: context, fontSize: 18),
-                E.heightSpacer(32),
-                E.myText(
-                  E.capitalizeEachWord(
-                    'Please enter the email associated with your account. You will receive an OTP via email.',
-                  ),
-                  color: Primary.lightGrey,
-                  context: context,
-                  fontSize: 16,
-                ),
-                E.heightSpacer(32),
-                E.myTextFormField(
-                  context: context,
-                  controller: emailController,
-                  label: 'Email',
-                  prefixIcon: Icon(
-                    Icons.mail,
-                    color: Primary.darkGrey,
-                  ),
-                ),
-                E.heightSpacer(32),
-                E.purpleButton(
-                  context: context,
-                  text: 'SEND',
-                  fontWeight: FontWeight.bold,
-                  circularRadius: 8,
-                  isLoading: isLoading,
-                  onTap: () {
-                    _submitEmail(emailController.text);
-                  },
-                ),
-              ],
+        body: Container(
+          decoration: const BoxDecoration(
+            gradient: RadialGradient(
+              colors: [Colors.black87, Colors.black],
+              radius: 0.65,
             ),
           ),
-        ]),
+          child: Stack(children: [
+           
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  E.heightSpacer(140),
+                  E.myText('FORGOT PASSWORD', context: context, fontSize: 18,),
+                  E.heightSpacer(32),
+                  E.myText(
+                    E.capitalizeEachWord(
+                      'Please enter the email associated with your account. You will receive an OTP via email.',
+                    ),
+                    color: Primary.white,
+                    context: context,
+                    fontSize: 16,
+                  ),
+                  E.heightSpacer(32),
+                  E.myTextFormField(
+                    context: context,
+                    controller: emailController,
+                    label: 'Email',
+                    prefixIcon: Icon(
+                      Icons.mail,
+                      color: Primary.white,
+                    ),
+                  ),
+                  E.heightSpacer(32),
+                  E.purpleButton(
+                    context: context,
+                    text: 'SEND',
+                    color: Primary.orange,
+                    fontWeight: FontWeight.bold,
+                    circularRadius: 8,
+                    isLoading: isLoading,
+                    onTap: () {
+                      _submitEmail(emailController.text);
+                    },
+                  ),
+                ],
+              ),
+            ),
+          ]),
+        ),
       ),
     );
   }

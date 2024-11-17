@@ -10,7 +10,7 @@ import 'driver_detail_screen.dart';
 
 
 class Standings extends StatefulWidget {
-  const Standings({Key? key}) : super(key: key);
+  const Standings({super.key});
 
   @override
   _StandingsState createState() => _StandingsState();
@@ -22,8 +22,8 @@ class _StandingsState extends State<Standings>
 
   final _selectedColor = Colors.white;
   final _tabs = [
-    Tab(text: 'Driver'),
-    Tab(text: 'Team'),
+    const Tab(text: 'Driver'),
+    const Tab(text: 'Team'),
   ];
 
   @override
@@ -46,8 +46,8 @@ class _StandingsState extends State<Standings>
         backgroundColor: Colors.transparent.withOpacity(1),
       ),
       body: Container(
-        decoration: BoxDecoration(
-            gradient: const RadialGradient(
+        decoration: const BoxDecoration(
+            gradient: RadialGradient(
           colors: [Colors.black87, Colors.black],
           radius: 0.65,
         )),
@@ -80,14 +80,14 @@ class _StandingsState extends State<Standings>
                             itemBuilder: (ctx, index) => Stack(children: [
                                   ClipRRect(
                                       borderRadius:
-                                          BorderRadius.all(Radius.circular(25)),
+                                          const BorderRadius.all(Radius.circular(25)),
                                       child: BackdropFilter(
                                           filter: ImageFilter.blur(
                                               sigmaX: 5, sigmaY: 5),
                                           child: Padding(
                                               padding: const EdgeInsets.all(3),
                                               child: Container(
-                                                padding: EdgeInsets.all(5),
+                                                padding: const EdgeInsets.all(5),
                                                 height: 70,
                                                 decoration: BoxDecoration(
                                                     color: Colors.grey
@@ -115,7 +115,7 @@ class _StandingsState extends State<Standings>
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Container(
+                                                      SizedBox(
                                                         width: 200,
                                                         child: Column(
                                                           children: [
@@ -171,7 +171,7 @@ class _StandingsState extends State<Standings>
                                                 ),
                                               ))))
                                 ]))
-                        : Center(
+                        : const Center(
                             child: Text(
                                 'No driver standings available')), // Placeholder when driver standings are empty
 
@@ -182,7 +182,7 @@ class _StandingsState extends State<Standings>
                             itemBuilder: (ctx, index) => Stack(children: [
                                   ClipRRect(
                                       borderRadius:
-                                          BorderRadius.all(Radius.circular(25)),
+                                          const BorderRadius.all(Radius.circular(25)),
                                       child: BackdropFilter(
                                           filter: ImageFilter.blur(
                                               sigmaX: 5, sigmaY: 5),
@@ -215,7 +215,7 @@ class _StandingsState extends State<Standings>
                                                         MainAxisAlignment
                                                             .spaceBetween,
                                                     children: [
-                                                      Container(
+                                                      SizedBox(
                                                         width: 200,
                                                         child: Column(
                                                           children: [
@@ -269,7 +269,7 @@ class _StandingsState extends State<Standings>
                                                 ),
                                               ))))
                                 ]))
-                        : Center(
+                        : const Center(
                             child: Text(
                                 'No team standings available')), // Placeholder when team standings are empty
                   ],

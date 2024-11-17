@@ -11,7 +11,7 @@ class MyDio {
 
   Future get(String url, {Map<String, dynamic>? params}) async {
     // final token = await UserAuth().getAuthTokenToStorage();
-    final token =
+    const token =
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmQyMGQwNTI2ZjUxM2FlNGQzNjAwOGMiLCJpYXQiOjE3MjUxODk3NzUsImV4cCI6MTcyNjkxNzc3NX0.QBgcq85kW41_dNbU0gmVEuqJWh6ZSOUvkvR0sBpgjS0';
 
     try {
@@ -55,7 +55,7 @@ class MyDio {
 
   Future<Response> put(String url, {dynamic data}) async {
     // final token = await UserAuth().getAuthTokenToStorage();
-    final token =
+    const token =
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmQyMGQwNTI2ZjUxM2FlNGQzNjAwOGMiLCJpYXQiOjE3MjUwOTg5MjcsImV4cCI6MTcyNjgyNjkyN30.Ux72iqQBJS081Asjc7yz8RvkK7e1XFX5SVY1K7IDknI';
 
     // print('put url:$url');
@@ -76,7 +76,7 @@ class MyDio {
   Future<Response> delete(String url,
       {Map<String, dynamic>? params, dynamic data}) async {
     // final token = await UserAuth().getAuthTokenToStorage();
-    final token =
+    const token =
         'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NmQyMGQwNTI2ZjUxM2FlNGQzNjAwOGMiLCJpYXQiOjE3MjUwOTg5MjcsImV4cCI6MTcyNjgyNjkyN30.Ux72iqQBJS081Asjc7yz8RvkK7e1XFX5SVY1K7IDknI';
 
     try {

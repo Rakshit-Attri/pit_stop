@@ -4,7 +4,7 @@ class ImageConstant {
   static String iconPath = 'assets/icons';
 
 // Images
-  static String logo = "$imagePath/logo.svg";
+  static String logo = "$imagePath/pit_stop.svg";
   static String front = "$imagePath/front.svg";
   static String back = "$imagePath/back.svg";
   static String selfie = "$imagePath/selfie.svg";

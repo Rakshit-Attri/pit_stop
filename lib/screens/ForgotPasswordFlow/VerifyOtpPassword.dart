@@ -30,22 +30,23 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
       setState(() {
         isLoading = true;
       });
-      var response = await MyDio().post('${Constants.baseUrl}auth/verify-reset-otp', data: {
-        'email': widget.email_id,
-        "otp": otp
-      });
+      var response = await MyDio().post(
+          '${Constants.baseUrl}auth/verify-reset-otp',
+          data: {'email': widget.email_id, "otp": otp});
       if (response.statusCode == 200) {
         Navigator.push(
           context,
-          MaterialPageRoute(builder: (context) =>  ChangePassword(email_id: widget.email_id,)),
+          MaterialPageRoute(
+              builder: (context) => ChangePassword(
+                    email_id: widget.email_id,
+                  )),
         );
       } else {
         ToastManager.errorToast("Failed to verify OTP. Please try again.");
-
       }
     } catch (e) {
       ToastManager.errorToast("An error occurred. Please try again later.");
-    }finally {
+    } finally {
       setState(() {
         isLoading = false;
       });
@@ -55,84 +56,96 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Stack(
-        children: [
-          SvgPicture.asset(
-            "assets/Graphic.svg",
-            fit: BoxFit.cover,
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: RadialGradient(
+            colors: [Colors.black87, Colors.black],
+            radius: 0.65,
           ),
-      SingleChildScrollView(
-        child: Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                E.heightSpacer(140),
-                E.myText('VERIFICATION', context: context, fontSize: 18),
-                E.heightSpacer(32),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        ),
+        child: Stack(
+          children: [
+            SingleChildScrollView(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(horizontal: 20),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
-                    E.myText('Enter the OTP sent to \n${widget.email_id}',
-                        context: context, fontSize: 16, color: Primary.darkGrey),
-                    E.myText('Edit',
-                        context: context, fontSize: 16, color: Primary.darkGrey),
-                  ],
-                ),
-                E.heightSpacer(24),
-
-                OtpBox(
-                  onOtpCompleted: (otp) {
-                    setState(() {
-                      otpCode = otp;
-                    });
-                  },
-                ),
-
-                E.heightSpacer(32),
-                E.purpleButton(
-                    context: context,
-                    text: 'VERIFY',
-                    fontWeight: FontWeight.bold,
-                    onTap: () {
-                      if (otpCode != null) {
-                        _verifyOTP(otpCode!);
-                      } else {
-                        ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(content: Text("Please enter the OTP")),
-                        );
-                      }
-                    }),
-                E.heightSpacer(30),
-                Center(
-                  child: RichText(
-                    text: TextSpan(
-                      text: 'Didn’t Receive The OTP? ',
-                      style: TextStyle(
-                        fontSize: 16,
-                        color: Primary.lightGrey,
-                      ),
+                    E.heightSpacer(140),
+                    E.myText('VERIFICATION', context: context, fontSize: 18),
+                    E.heightSpacer(32),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        TextSpan(
-                          text: 'Resend OTP',
-                          style: TextStyle(
-                              color: Primary.darkGrey,
-                              fontSize: 16,
-                              fontWeight: FontWeight.w500,
-                              decoration: TextDecoration.underline),
-                          recognizer: TapGestureRecognizer()
-                            ..onTap = () {
-                              // Handle OTP resend logic
-                            },
-                        ),
+                        E.myText('Enter the OTP sent to \n${widget.email_id}',
+                            context: context,
+                            fontSize: 16,
+                            color: Primary.white),
+                        E.myText('Edit',
+                            context: context,
+                            fontSize: 16,
+                            color: Primary.white),
                       ],
                     ),
-                  ),
+                    E.heightSpacer(24),
+                    OtpBox(
+                      onOtpCompleted: (otp) {
+                        setState(() {
+                          otpCode = otp;
+                        });
+                      },
+                    ),
+                    E.heightSpacer(32),
+                    E.purpleButton(
+                        context: context,
+                        text: 'VERIFY',
+                        color: Primary.white,
+                        fontWeight: FontWeight.bold,
+                        onTap: () {
+                          if (otpCode != null) {
+                            _verifyOTP(otpCode!);
+                          } else {
+                            ScaffoldMessenger.of(context).showSnackBar(
+                              const SnackBar(
+                                  content: Text(
+                                "Please enter the OTP",
+                                style: TextStyle(color: Colors.white),
+                              )),
+                            );
+                          }
+                        }),
+                    E.heightSpacer(30),
+                    Center(
+                      child: RichText(
+                        text: TextSpan(
+                          text: 'Didn’t Receive The OTP? ',
+                          style: TextStyle(
+                            fontSize: 16,
+                            color: Primary.white,
+                          ),
+                          children: [
+                            TextSpan(
+                              text: 'Resend OTP',
+                              style: TextStyle(
+                                  color: Primary.white,
+                                  fontSize: 16,
+                                  fontWeight: FontWeight.w500,
+                                  decoration: TextDecoration.underline),
+                              recognizer: TapGestureRecognizer()
+                                ..onTap = () {
+                                  // Handle OTP resend logic
+                                },
+                            ),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-          ),
-      )  ],
+              ),
+            )
+          ],
+        ),
       ),
     );
   }

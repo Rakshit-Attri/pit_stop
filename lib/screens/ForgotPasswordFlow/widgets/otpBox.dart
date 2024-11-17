@@ -1,9 +1,9 @@
-import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pinput/pinput.dart';
 
 import '../../../utils/colors.dart';
 import '../../../utils/essentials.dart';
+
 class OtpBox extends StatefulWidget {
   final Function(String) onOtpCompleted;
 
@@ -69,7 +69,8 @@ class _OtpBoxState extends State<OtpBox> {
           crossAxisAlignment: CrossAxisAlignment.start,
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            E.myText("Enter Your OTP Here.", context: context, color: Primary.darkGrey),
+            E.myText("Enter Your OTP Here.",
+                context: context, color: Primary.darkGrey),
             E.heightSpacer(20),
             Center(
               child: Pinput(

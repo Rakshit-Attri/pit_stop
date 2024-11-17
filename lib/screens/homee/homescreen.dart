@@ -24,10 +24,10 @@ class _HomescreenState extends State<Homescreen> {
         elevation: 10,
         backgroundColor: Colors.transparent.withOpacity(1),
       ),
-      drawer: DrawerWidget(),
+      drawer: const DrawerWidget(),
       body: Container(
-        decoration: BoxDecoration(
-            gradient: const RadialGradient(
+        decoration: const BoxDecoration(
+            gradient: RadialGradient(
           colors: [Colors.black87, Colors.black],
           radius: 0.65,
         )),
@@ -64,7 +64,7 @@ class _HomescreenState extends State<Homescreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 40,
                                   ),
                                   E.myText('Leader',
@@ -79,7 +79,7 @@ class _HomescreenState extends State<Homescreen> {
                                       context: context,
                                       color: Colors.red[900],
                                       fontSize: 24),
-                                  SizedBox(height: 40),
+                                  const SizedBox(height: 40),
                                   E.myText('331',
                                       context: context,
                                       color: Colors.deepOrange[600],
@@ -109,10 +109,10 @@ class _HomescreenState extends State<Homescreen> {
                                 crossAxisAlignment: CrossAxisAlignment.start,
                                 mainAxisAlignment: MainAxisAlignment.start,
                                 children: [
-                                  SizedBox(
+                                  const SizedBox(
                                     height: 40,
                                   ),
-                                  Icon(Icons.tour_rounded),
+                                  const Icon(Icons.tour_rounded),
                                   E.myText('Leader',
                                       context: context,
                                       color: Colors.white,
@@ -125,7 +125,7 @@ class _HomescreenState extends State<Homescreen> {
                                       context: context,
                                       color: Colors.deepOrange[400],
                                       fontSize: 24),
-                                  SizedBox(height: 50),
+                                  const SizedBox(height: 50),
                                   E.myText('331',
                                       context: context,
                                       color: Colors.deepOrange[600],
@@ -143,7 +143,7 @@ class _HomescreenState extends State<Homescreen> {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 ClipRRect(
@@ -157,8 +157,8 @@ class _HomescreenState extends State<Homescreen> {
                         fit: BoxFit.cover,
                       ),
                       Container(
-                        child: Padding(
-                          padding: const EdgeInsets.all(10),
+                        child: const Padding(
+                          padding: EdgeInsets.all(10),
                           child: Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             mainAxisAlignment: MainAxisAlignment.start,
@@ -192,17 +192,17 @@ class _HomescreenState extends State<Homescreen> {
                     ],
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 20,
                 ),
                 Padding(
-                  padding: EdgeInsets.all(20),
+                  padding: const EdgeInsets.all(20),
                   child: Container(
                     decoration: BoxDecoration(
                         borderRadius: BorderRadius.circular(10),
                         border: Border.all(
                             color: Colors.greenAccent.shade200, width: 0.3)),
-                    padding: EdgeInsets.all(5),
+                    padding: const EdgeInsets.all(5),
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
@@ -212,7 +212,7 @@ class _HomescreenState extends State<Homescreen> {
                           context: context,
                           fontSize: 22,
                         ),
-                        SizedBox(
+                        const SizedBox(
                           height: 10,
                         ),
                         Row(
@@ -232,7 +232,7 @@ class _HomescreenState extends State<Homescreen> {
                                     fontSize: 18),
                               ],
                             ),
-                            SizedBox(width: 20),
+                            const SizedBox(width: 20),
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
@@ -253,7 +253,7 @@ class _HomescreenState extends State<Homescreen> {
                     ),
                   ),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 50,
                 )
               ],

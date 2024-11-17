@@ -7,7 +7,7 @@ class Primary {
 
   static Color get darkGrayPopUp => const Color(0xff282D35);
 
-  static Color get lightWine => const Color(0XffC038CC);
+  static Color get orange => const Color.fromARGB(255, 239, 108, 0);
 
   static Color get darkWine => const Color(0Xff972DA0);
 

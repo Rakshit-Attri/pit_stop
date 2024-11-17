@@ -21,7 +21,7 @@ class DriverDetailScreen extends StatelessWidget {
       ),
       body: SizedBox.expand(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           decoration: const BoxDecoration(
             gradient: RadialGradient(
               colors: [Colors.black87, Colors.black],
@@ -35,12 +35,12 @@ class DriverDetailScreen extends StatelessWidget {
               children: [
                 Container(
                     child: Text(driver.name,
-                        style: TextStyle(fontSize: 40, color: Colors.white))),
-                Text(
+                        style: const TextStyle(fontSize: 40, color: Colors.white))),
+                const Text(
                   '2024 Season',
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -48,14 +48,14 @@ class DriverDetailScreen extends StatelessWidget {
                     Container(
                         child: Text(driver.number,
                             style:
-                                TextStyle(fontSize: 40, color: Colors.white))),
-                    Text(
+                                const TextStyle(fontSize: 40, color: Colors.white))),
+                    const Text(
                       'Pos',
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -63,24 +63,24 @@ class DriverDetailScreen extends StatelessWidget {
                     Container(
                         child: Text(driver.points,
                             style:
-                                TextStyle(fontSize: 30, color: Colors.white))),
-                    Text(
+                                const TextStyle(fontSize: 30, color: Colors.white))),
+                    const Text(
                       'PTS',
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.workspace_premium_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -88,9 +88,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.wins,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Wins',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -98,17 +98,17 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.stacked_bar_chart_sharp,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -116,9 +116,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.podiums,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Podiums',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -126,17 +126,17 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.volcano_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -144,9 +144,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.poles,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Poles',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -154,17 +154,17 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.dnd_forwardslash_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -172,9 +172,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.dnfs,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'DNFs',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -182,7 +182,7 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -190,11 +190,11 @@ class DriverDetailScreen extends StatelessWidget {
                     Container(
                         child: Text(driver.drivercode,
                             style:
-                                TextStyle(fontSize: 20, color: Colors.white))),
-                    SizedBox(
+                                const TextStyle(fontSize: 20, color: Colors.white))),
+                    const SizedBox(
                       width: 10,
                     ),
-                    Column(
+                    const Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
                         Text(
@@ -209,17 +209,17 @@ class DriverDetailScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.format_size_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -227,9 +227,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.team,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Team',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -237,17 +237,17 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.addchart_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -255,9 +255,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.firstentry,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'First Entry',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -265,17 +265,17 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.adjust_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -283,9 +283,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.firstwin,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'First Win',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -293,17 +293,17 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.workspace_premium_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -311,9 +311,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.wc,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'World Championships',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -321,17 +321,17 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.calendar_today_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -339,9 +339,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.dob,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Date of Birth',
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         )
@@ -349,17 +349,17 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.home_rounded,
                       size: 30,
                       color: Colors.white,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -367,9 +367,9 @@ class DriverDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(driver.country,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Country',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -377,13 +377,13 @@ class DriverDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
                     child: Text(driver.details,
-                        style: TextStyle(fontSize: 20, color: Colors.white))),
-                SizedBox(
+                        style: const TextStyle(fontSize: 20, color: Colors.white))),
+                const SizedBox(
                   height: 15,
                 ),
               ],

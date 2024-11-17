@@ -19,7 +19,7 @@ class TeamDetailScreen extends StatelessWidget {
       ),
       body: SizedBox.expand(
         child: Container(
-          padding: EdgeInsets.all(20),
+          padding: const EdgeInsets.all(20),
           decoration: const BoxDecoration(
             gradient: RadialGradient(
               colors: [Colors.black87, Colors.black],
@@ -33,15 +33,15 @@ class TeamDetailScreen extends StatelessWidget {
               children: [
                 Container(
                     child: Text(team.name,
-                        style: TextStyle(fontSize: 40, color: Colors.white))),
+                        style: const TextStyle(fontSize: 40, color: Colors.white))),
                 Container(
                     child: Text(team.carName,
-                        style: TextStyle(fontSize: 40, color: Colors.white))),
-                Text(
+                        style: const TextStyle(fontSize: 40, color: Colors.white))),
+                const Text(
                   '2024 Season',
                   style: TextStyle(fontSize: 15, color: Colors.white),
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -49,14 +49,14 @@ class TeamDetailScreen extends StatelessWidget {
                     Container(
                         child: Text(team.position,
                             style:
-                                TextStyle(fontSize: 40, color: Colors.white))),
-                    Text(
+                                const TextStyle(fontSize: 40, color: Colors.white))),
+                    const Text(
                       'Pos',
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -64,24 +64,24 @@ class TeamDetailScreen extends StatelessWidget {
                     Container(
                         child: Text(team.points,
                             style:
-                                TextStyle(fontSize: 30, color: Colors.white))),
-                    Text(
+                                const TextStyle(fontSize: 30, color: Colors.white))),
+                    const Text(
                       'PTS',
                       style: TextStyle(fontSize: 15, color: Colors.white),
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.workspace_premium_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -89,9 +89,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.wins,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Wins',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -99,17 +99,17 @@ class TeamDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.stacked_bar_chart_sharp,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -117,9 +117,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.podiums,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Podiums',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -127,17 +127,17 @@ class TeamDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.volcano_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -145,9 +145,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.poles,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Poles',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -155,17 +155,17 @@ class TeamDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.dnd_forwardslash_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -173,9 +173,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.dnfs,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'DNFs',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -183,7 +183,7 @@ class TeamDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -191,10 +191,10 @@ class TeamDetailScreen extends StatelessWidget {
                     Container(
                         child: Text(team.driver1,
                             style:
-                                TextStyle(fontSize: 20, color: Colors.white))),
+                                const TextStyle(fontSize: 20, color: Colors.white))),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
@@ -202,20 +202,20 @@ class TeamDetailScreen extends StatelessWidget {
                     Container(
                         child: Text(team.driver2,
                             style:
-                                TextStyle(fontSize: 20, color: Colors.white))),
+                                const TextStyle(fontSize: 20, color: Colors.white))),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.format_size_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -223,9 +223,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.carName,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Chassie',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -233,12 +233,12 @@ class TeamDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -246,9 +246,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.powerUnit,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Power Unit',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -256,12 +256,12 @@ class TeamDetailScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -269,9 +269,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.teamP,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Team Principal',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -279,17 +279,17 @@ class TeamDetailScreen extends StatelessWidget {
                     )
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.addchart_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -297,9 +297,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.firstentry,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'First Entry',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -307,17 +307,17 @@ class TeamDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.adjust_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -325,9 +325,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.constchamp,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'First Win',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -335,17 +335,17 @@ class TeamDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.workspace_premium_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -353,9 +353,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.driverchamp,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'World Championships',
                           style: TextStyle(fontSize: 15, color: Colors.white),
                         )
@@ -363,17 +363,17 @@ class TeamDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Row(
                   children: [
-                    Icon(
+                    const Icon(
                       Icons.calendar_today_rounded,
                       color: Colors.white,
                       size: 30,
                     ),
-                    SizedBox(
+                    const SizedBox(
                       width: 10,
                     ),
                     Column(
@@ -381,9 +381,9 @@ class TeamDetailScreen extends StatelessWidget {
                       children: [
                         Container(
                             child: Text(team.base,
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 20, color: Colors.white))),
-                        Text(
+                        const Text(
                           'Date of Birth',
                           style: TextStyle(color: Colors.white, fontSize: 15),
                         )
@@ -391,13 +391,13 @@ class TeamDetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                SizedBox(
+                const SizedBox(
                   height: 15,
                 ),
                 Container(
                     child: Text(team.details,
-                        style: TextStyle(fontSize: 20, color: Colors.white))),
-                SizedBox(
+                        style: const TextStyle(fontSize: 20, color: Colors.white))),
+                const SizedBox(
                   height: 15,
                 ),
               ],
