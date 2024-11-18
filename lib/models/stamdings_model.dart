@@ -2,15 +2,15 @@ class Driver {
   String number;
   String name;
   String team;
-  String points;
-  String wins;
-  String podiums;
-  String poles;
-  String dnfs;
+  int points;
+  int wins;
+  int podiums;
+  int poles;
+  int dnfs;
   String drivercode;
   String firstentry;
   String firstwin;
-  String wc;
+  int wc;
   String dob;
   String country;
   String details;
@@ -41,19 +41,19 @@ class Driver {
       number: json['number'] ?? '',
       name: json['name'] ?? '',
       team: json['team'] ?? '',
-      points: json['points'] ?? '',
-      wins: json['wins'] ?? '',
-      podiums: json['podiums'] ?? '',
-      poles: json['poles'] ?? '',
-      dnfs: json['dnfs'] ?? '',
+      points: json['points'] is int ? json['points'] : int.tryParse(json['points'].toString()) ?? 0,
+      wins: json['wins'] is int ? json['wins'] : int.tryParse(json['wins'].toString()) ?? 0,
+      podiums: json['podiums'] is int ? json['podiums'] : int.tryParse(json['podiums'].toString()) ?? 0,
+      poles: json['poles'] is int ? json['poles'] : int.tryParse(json['poles'].toString()) ?? 0,
+      dnfs: json['dnfs'] is int ? json['dnfs'] : int.tryParse(json['dnfs'].toString()) ?? 0,
       drivercode: json['drivercode'] ?? '',
       firstentry: json['firstentry'] ?? '',
       firstwin: json['firstwin'] ?? '',
-      wc: json['wc'] ?? '',
+      wc: json['wc'] is int ? json['wc'] : int.tryParse(json['wc'].toString()) ?? 0,
       dob: json['dob'] ?? '',
       country: json['country'] ?? '',
       details: json['details'] ?? '',
-      imageUrl: json['imageUrl'] ?? '', // JSON parsing updated
+      imageUrl: json['imageUrl'] ?? '',
     );
   }
 
@@ -83,8 +83,8 @@ class Driver {
 class Team {
   final String position;
   final String name;
-  final String points;
-  final String wins;
+  final int points;
+  final int wins;
   final String carName;
   final String gps;
   final String totalpts;
@@ -138,8 +138,8 @@ class Team {
     return Team(
       position: json['position'] ?? '',
       name: json['name'] ?? '',
-      points: json['points'] ?? '',
-      wins: json['wins'] ?? '',
+      points: json['points'] is int ? json['points'] : int.tryParse(json['points'].toString()) ?? 0,
+      wins: json['wins'] is int ? json['wins'] : int.tryParse(json['wins'].toString()) ?? 0,
       carName: json['carName'] ?? '',
       gps: json['gps'] ?? '',
       totalpts: json['totalpts'] ?? '',

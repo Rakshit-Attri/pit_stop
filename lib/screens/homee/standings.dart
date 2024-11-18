@@ -196,7 +196,7 @@ class _StandingsState extends State<Standings>
                                                 children: [
                                                   E.myText(
                                                       drivers[index]
-                                                          .points,
+                                                          .points.toString(),
                                                       color: Colors
                                                           .white,
                                                       context:
@@ -294,7 +294,7 @@ class _StandingsState extends State<Standings>
                                                         20),
                                                     E.myText(
                                                         teams[index]
-                                                            .points,
+                                                            .points.toString(),
                                                         color: Colors
                                                             .white,
                                                         context:
@@ -308,7 +308,7 @@ class _StandingsState extends State<Standings>
                                                 children: [
                                                   E.myText(
                                                       teams[index]
-                                                          .wins,
+                                                          .wins.toString(),
                                                       color: Colors
                                                           .white,
                                                       context:

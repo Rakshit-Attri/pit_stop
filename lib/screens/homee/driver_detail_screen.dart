@@ -68,27 +68,27 @@ class DriverDetailScreen extends StatelessWidget {
               ),
               _buildInfoRow(
                 icon: Icons.score,
-                value: driver.points,
+                value: driver.points.toString(),
                 label: 'PTS',
               ),
               _buildInfoRow(
                 icon: Icons.workspace_premium_rounded,
-                value: driver.wins,
+                value: driver.wins.toString(),
                 label: 'Wins',
               ),
               _buildInfoRow(
                 icon: Icons.stacked_bar_chart,
-                value: driver.podiums,
+                value: driver.podiums.toString(),
                 label: 'Podiums',
               ),
               _buildInfoRow(
                 icon: Icons.volcano_rounded,
-                value: driver.poles,
+                value: driver.poles.toString(),
                 label: 'Poles',
               ),
               _buildInfoRow(
                 icon: Icons.dnd_forwardslash_rounded,
-                value: driver.dnfs,
+                value: driver.dnfs.toString(),
                 label: 'DNFs',
               ),
               _buildInfoRow(
@@ -113,7 +113,7 @@ class DriverDetailScreen extends StatelessWidget {
               ),
               _buildInfoRow(
                 icon: Icons.workspace_premium,
-                value: driver.wc,
+                value: driver.wc.toString(),
                 label: 'World Championships',
               ),
               _buildInfoRow(
