@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:pit_stop/utils/helper_functions.dart';
 import '../../providers/UserAuth.dart';
 import '../../main.dart';
 import '../../utils/colors.dart';
@@ -75,30 +76,36 @@ class _LoginScreenState extends State<LoginScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
+
     return GestureDetector(
-        onTap: () {
-          E.looseFocus(context);
-        },
-        child: Scaffold(
-          resizeToAvoidBottomInset: false,
-          body: Container(
-            decoration: const BoxDecoration(
-              gradient: RadialGradient(
-                colors: [Colors.black87, Colors.black],
-                radius: 0.65,
-              ),
+      onTap: () {
+        E.looseFocus(context);
+      },
+      child: Scaffold(
+        resizeToAvoidBottomInset: true,
+        body: Container(
+          width: size.width,
+          height: size.height,
+          decoration: const BoxDecoration(
+            gradient: RadialGradient(
+              colors: [Colors.black87, Colors.black],
+              radius: 0.65,
             ),
-            child: Stack(children: [
-              Padding(
+          ),
+          child: SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: size.height,
+              ),
+              child: Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.center,
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Center(
-                      child: SvgPicture.asset(ImageConstant.logo),
-                    ),
-                    E.heightSpacer(50),
+                    const SizedBox(height: 40),
+                    SvgPicture.asset(ImageConstant.logo, height: 300),
                     Align(
                       alignment: Alignment.centerLeft,
                       child: E.myText(
@@ -114,14 +121,18 @@ class _LoginScreenState extends State<LoginScreen> {
                       context: context,
                       controller: emailController,
                       label: 'Email or Username',
-                      prefixIcon: Icon(
+                      prefixIcon: const Icon(
                         Icons.mail,
                         color: Colors.white,
                       ),
                     ),
                     E.heightSpacer(32),
                     E.myTextFormField(
-                      prefixIcon: Icon(
+                      context: context,
+                      controller: passwordController,
+                      obscureText: obscureText,
+                      label: 'Password',
+                      prefixIcon: const Icon(
                         Icons.lock,
                         color: Colors.white,
                       ),
@@ -139,24 +150,11 @@ class _LoginScreenState extends State<LoginScreen> {
                                 : ImageConstant.eyeCut,
                             color: Colors.black,
                             fit: BoxFit.contain,
-                            height: 26, width: 26,
-                            // height: 12,
-                            // width: 12,
+                            height: 26,
+                            width: 26,
                           ),
                         ),
-
-                        // Icon(
-                        //   obscureText
-                        //       ? Icons.remove_red_eye_outlined
-                        //       : Icons.remove_red_eye,
-                        //   color: Colors.white,
-                        //   size: 20,
-                        // ),
                       ),
-                      context: context,
-                      controller: passwordController,
-                      obscureText: obscureText,
-                      label: 'Password',
                     ),
                     E.heightSpacer(8),
                     Align(
@@ -168,11 +166,12 @@ class _LoginScreenState extends State<LoginScreen> {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                  builder: (context) => const ForgotScreen()),
+                                builder: (context) => const ForgotScreen(),
+                              ),
                             );
                           },
                           child: E.myText(
-                            'Forgot Password ?',
+                            'Forgot Password?',
                             context: context,
                             fontSize: 13,
                             decoration: TextDecoration.underline,
@@ -182,28 +181,29 @@ class _LoginScreenState extends State<LoginScreen> {
                       ),
                     ),
                     E.heightSpacer(80),
-                    E.heightSpacer(24),
                     Align(
                       alignment: Alignment.center,
                       child: RichText(
                         text: TextSpan(
                           text: 'Don’t Have An Account? ',
-                          style:
-                              TextStyle(color: Primary.lightGrey, fontSize: 13),
+                          style: TextStyle(
+                            color: Primary.lightGrey,
+                            fontSize: 13,
+                          ),
                           children: [
                             TextSpan(
                               text: 'Sign Up',
-                              style: TextStyle(
-                                  color: Primary.darkGrey,
-                                  // fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline),
+                              style:  TextStyle(
+                                color: Primary.darkGrey,
+                                decoration: TextDecoration.underline,
+                              ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
                                       builder: (context) =>
-                                          const SignUpScreen(),
+                                      const SignUpScreen(),
                                     ),
                                   );
                                 },
@@ -214,20 +214,26 @@ class _LoginScreenState extends State<LoginScreen> {
                     ),
                     E.heightSpacer(32),
                     E.purpleButton(
-                        text: 'LOGIN',
-                        color: Primary.orange,
-                        circularRadius: 8,
-                        onTap: () {
-                          login(emailController.text.trim(),
-                              passwordController.text.trim(), context);
-                        },
-                        isLoading: isLoading,
-                        context: context),
+                      text: 'LOGIN',
+                      color: Primary.orange,
+                      circularRadius: 8,
+                      onTap: () {
+                        login(emailController.text.trim(),
+                            passwordController.text.trim(), context);
+                      },
+                      isLoading: isLoading,
+                      context: context,
+                    ),
+                    const SizedBox(height: 40), // Bottom padding
                   ],
                 ),
               ),
-            ]),
+            ),
           ),
-        ));
+        ),
+      ),
+    );
   }
+
+
 }

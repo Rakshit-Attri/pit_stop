@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:pit_stop/data/schedule_model.dart';
+import 'package:pit_stop/models/schedule_model.dart';
+import 'package:pit_stop/utils/colors.dart';
 
 import '../../utils/helper_functions.dart';
 import 'race_result_screen.dart';
-
 
 class RaceDetail extends StatefulWidget {
   const RaceDetail({super.key, required this.race});
@@ -19,7 +19,7 @@ class _CircuitDetailState extends State<RaceDetail> {
         appBar: AppBar(
           title: Text('Race Details ${widget.race.title}'),
           elevation: 10,
-          backgroundColor: Colors.transparent.withOpacity(1),
+          backgroundColor: Primary.orange,
         ),
         body: SizedBox.expand(
           child: Container(
@@ -77,10 +77,10 @@ class _CircuitDetailState extends State<RaceDetail> {
   Widget scheduleRow(String time) {
     return InkWell(
       onTap: () {
-        Navigator.of(context).push(
-            MaterialPageRoute(
-                builder: (ctx) =>
-                    RaceResultScreen(schedule: time,)));
+        Navigator.of(context).push(MaterialPageRoute(
+            builder: (ctx) => RaceResultScreen(
+                  schedule: time,
+                )));
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,

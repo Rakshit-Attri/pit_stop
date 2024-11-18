@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pit_stop/screens/onboarding/splashScreen.dart';
+import 'package:pit_stop/utils/colors.dart';
+import 'package:pit_stop/utils/helper_functions.dart';
 import 'package:provider/provider.dart';
 
 import 'providers/UserAuth.dart';
@@ -25,7 +27,8 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
           colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-          useMaterial3: true,
+          useMaterial3: false,
+
           scaffoldBackgroundColor: Colors.white
           ),
       home: const SplashScreen(),

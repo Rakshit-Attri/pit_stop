@@ -70,34 +70,36 @@ class _ChangePasswordState extends State<ChangePassword> {
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        FocusScope.of(context).requestFocus(FocusNode());
-      },
-      child: Scaffold(
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: RadialGradient(
-              colors: [Colors.black87, Colors.black],
-              radius: 0.65,
-            ),
+    final size = MediaQuery.of(context).size;
+    return Scaffold(
+      body: Container(
+        decoration: const BoxDecoration(
+          gradient: RadialGradient(
+            colors: [Colors.black87, Colors.black],
+            radius: 0.65,
           ),
-          child: Stack(
-            children: [
-             
-              SingleChildScrollView(
-                child: Padding(
+        ),
+        child: Stack(
+
+          children: [
+        SingleChildScrollView(
+
+        child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minHeight: size.height,
+        ),
+        child:  Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 20),
                   child: Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       E.heightSpacer(140),
-                      E.myText('CREATE A NEW PASSWORD', context: context, fontSize: 18),
+                      E.myText('CREATE A NEW PASSWORD', context: context, fontSize: 18,color: Primary.orange),
                       E.heightSpacer(32),
                       Align(
                         alignment: Alignment.centerLeft,
                         child: E.myText('Create New Password and Confirm New Password',
-                            context: context, fontSize: 16),
+                            context: context, fontSize: 16,color: Primary.orange),
                       ),
                       E.heightSpacer(32),
                       E.myTextFormField(
@@ -159,6 +161,7 @@ class _ChangePasswordState extends State<ChangePassword> {
                       E.purpleButton(
                         context: context,
                         text: 'SUBMIT',
+                        color: Primary.orange,
                         fontWeight: FontWeight.bold,
                         onTap: () {
                           if (newPassController.text == confirmPasswordController.text) {
@@ -172,10 +175,10 @@ class _ChangePasswordState extends State<ChangePassword> {
                   ),
                 ),
               ),
-            ],
+        ) ],
           ),
         ),
-      ),
+
     );
   }
 }

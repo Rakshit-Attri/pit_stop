@@ -299,8 +299,8 @@ class E {
           if (maxLength != null) LengthLimitingTextInputFormatter(maxLength),
           if (onlyNumbers) FilteringTextInputFormatter.digitsOnly,
         ],
-        cursorColor: Primary.darkWine,
-        style: TextStyle(color: Primary.black, fontSize: 14),
+        cursorColor: Primary.orange,
+        style: TextStyle(color: Primary.orange, fontSize: 14),
         decoration: InputDecoration(
           contentPadding:
               const EdgeInsets.symmetric(horizontal: 8, vertical: 8),
@@ -323,7 +323,7 @@ class E {
           hintText: hintText,
           floatingLabelBehavior: FloatingLabelBehavior.always,
           hintStyle: TextStyle(
-              color: Primary.black, fontFamily: fontFamily, fontSize: 12),
+              color: Primary.orange, fontFamily: fontFamily, fontSize: 12),
           suffixIcon: suffixIcon,
           suffixIconConstraints: const BoxConstraints(
             maxWidth: 26,
@@ -334,7 +334,7 @@ class E {
             borderRadius: BorderRadius.circular(circleRadius),
           ),
           focusedBorder: OutlineInputBorder(
-            borderSide: BorderSide(color: Primary.darkWine),
+            borderSide: BorderSide(color: Primary.orange),
             borderRadius: BorderRadius.circular(circleRadius),
           ),
           enabledBorder: OutlineInputBorder(

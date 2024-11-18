@@ -31,9 +31,9 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.transparent,
+      backgroundColor: Colors.orange,
       elevation: 10,
-      width: E.width(context) - 58,
+      width: E.width(context)*0.5,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 38, 16, 0),
         child: Column(
@@ -43,30 +43,12 @@ class _DrawerWidgetState extends State<DrawerWidget> {
               child: Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
-                  Container(
-                    width: 48,
-                    height: 48,
-                    decoration: BoxDecoration(
-                      shape: BoxShape.circle,
-                      color: Primary.brown,
-                    ),
-                    child: ClipRRect(
-                      borderRadius: BorderRadius.circular(100),
-                      child: CachedImage(imageUrl: E.getRandomImage()),
-                    ),
-                  ),
-                  E.widthSpacer(16),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      E.heightSpacer(6),
-                      E.myText(
-                        '(406) 555-0120',
-                        context: context,
-                        fontSize: 14,
-                        color: Primary.white,
-                      ),
-                    ],
+                  E.heightSpacer(6),
+                  E.myText(
+                    userAuth.userData?.email,
+                    context: context,
+                    fontSize: 14,
+                    color: Primary.white,
                   ),
                 ],
               ),
@@ -78,7 +60,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
                   ...HelperFunctions.getSpacedChildren(items: [
                     drawerItem(
                       context,
-                      icon: ImageConstant.google,
+                      icon: Icons.logout,
                       text: 'Logout',
                       onTap: () async {
                         userAuth.logout();
@@ -95,7 +77,7 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   }
 
   Widget drawerItem(BuildContext context,
-      {required String icon, required String text, VoidCallback? onTap}) {
+      {required IconData icon, required String text, VoidCallback? onTap}) {
     return InkWell(
       borderRadius: BorderRadius.circular(12),
       onTap: onTap,
@@ -106,9 +88,10 @@ class _DrawerWidgetState extends State<DrawerWidget> {
         ),
         child: Row(
           children: [
-            SvgPicture.asset(
+            Icon(
               icon,
               color: Primary.black,
+              size: 24, // Adjust size if needed
             ),
             E.widthSpacer(16),
             E.myText(E.capitalizeEachWord(text), context: context),
@@ -117,4 +100,5 @@ class _DrawerWidgetState extends State<DrawerWidget> {
       ),
     );
   }
+
 }

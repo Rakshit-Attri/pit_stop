@@ -1,8 +1,9 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 
-import 'package:pit_stop/data/schedule_model.dart';
+import 'package:pit_stop/models/schedule_model.dart';
 
+import '../../utils/colors.dart';
 import '../../utils/essentials.dart';
 import '../drawer/drawer.dart';
 
@@ -22,7 +23,7 @@ class _HomescreenState extends State<Homescreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         elevation: 10,
-        backgroundColor: Colors.transparent.withOpacity(1),
+        backgroundColor: Primary.orange,
       ),
       drawer: const DrawerWidget(),
       body: Container(

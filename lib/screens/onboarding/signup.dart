@@ -16,7 +16,6 @@ class SignUpScreen extends StatefulWidget {
   @override
   State<SignUpScreen> createState() => _SignUpScreenState();
 }
-
 class _SignUpScreenState extends State<SignUpScreen> {
   bool passwordObscureText = true;
   bool confirmObscureText = true;
@@ -70,29 +69,42 @@ class _SignUpScreenState extends State<SignUpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
-        resizeToAvoidBottomInset: false,
-        body: Container(
-          decoration: const BoxDecoration(
-            gradient: RadialGradient(
-              colors: [Colors.black87, Colors.black],
-              radius: 0.65,
-            ),
+      resizeToAvoidBottomInset: true,
+      body: Container(
+        width: size.width,
+        height: size.height,
+        decoration: const BoxDecoration(
+          gradient: RadialGradient(
+            colors: [Colors.black87, Colors.black],
+            radius: 0.65,
           ),
-          child: Stack(children: [
-            SafeArea(
+        ),
+        child: SafeArea(
+          child: SingleChildScrollView(
+            child: ConstrainedBox(
+              constraints: BoxConstraints(
+                minHeight: size.height,
+              ),
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(vertical: 70, horizontal: 20),
+                padding: const EdgeInsets.symmetric(vertical: 40, horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     Center(
-                      child: SvgPicture.asset(ImageConstant.logo),
+                      child: SvgPicture.asset(
+                        ImageConstant.logo,
+                        height: 300,
+                      ),
                     ),
-                    E.heightSpacer(50),
-                    E.myText('SIGN UP',
-                        context: context, fontSize: 18, color: Primary.orange),
+                    E.heightSpacer(32),
+                    E.myText(
+                      'SIGN UP',
+                      context: context,
+                      fontSize: 18,
+                      color: Primary.orange,
+                    ),
                     E.heightSpacer(32),
                     E.myTextFormField(
                       context: context,
@@ -129,9 +141,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 : ImageConstant.eyeCut,
                             color: Primary.darkGrey,
                             fit: BoxFit.contain,
-                            height: 26, width: 26,
-                            // height: 12,
-                            // width: 12,
+                            height: 26,
+                            width: 26,
                           ),
                         ),
                       ),
@@ -161,9 +172,8 @@ class _SignUpScreenState extends State<SignUpScreen> {
                                 : ImageConstant.eyeCut,
                             color: Primary.darkGrey,
                             fit: BoxFit.contain,
-                            height: 26, width: 26,
-                            // height: 12,
-                            // width: 12,
+                            height: 26,
+                            width: 26,
                           ),
                         ),
                       ),
@@ -178,28 +188,28 @@ class _SignUpScreenState extends State<SignUpScreen> {
                     E.heightSpacer(24),
                     Align(
                       alignment: Alignment.center,
-                      /**/
                       child: RichText(
                         text: TextSpan(
                           text: 'Already Have An Account? ',
-                          style:
-                              TextStyle(color: Primary.lightGrey, fontSize: 13),
+                          style: TextStyle(
+                            color: Primary.lightGrey,
+                            fontSize: 13,
+                          ),
                           children: [
                             TextSpan(
                               text: 'Login',
                               style: TextStyle(
-                                  color: Primary.darkGrey,
-                                  fontSize: 14,
-                                  // fontWeight: FontWeight.bold,
-                                  decoration: TextDecoration.underline),
+                                color: Primary.darkGrey,
+                                fontSize: 14,
+                                decoration: TextDecoration.underline,
+                              ),
                               recognizer: TapGestureRecognizer()
                                 ..onTap = () {
-                                  // print('Sign up button pressed!');
                                   Navigator.pushReplacement(
                                     context,
                                     MaterialPageRoute(
-                                        builder: (context) =>
-                                            const LoginScreen()),
+                                      builder: (context) => const LoginScreen(),
+                                    ),
                                   );
                                 },
                             ),
@@ -207,32 +217,32 @@ class _SignUpScreenState extends State<SignUpScreen> {
                         ),
                       ),
                     ),
-                    E.heightSpacer(80),
+                    E.heightSpacer(40),
                     E.purpleButton(
-                        text: 'VERIFY',
-                        color: Primary.orange,
-                        context: context,
-                        fontWeight: FontWeight.bold,
-                        circularRadius: 8,
-                        onTap: () {
-                          signup(
-                              emailController.text.trim(),
-                              passwordController.text.trim(),
-                              confirmPasswordController.text.trim(),
-                              context);
-                        },
-                        isLoading: isLoading
-                        // onTap: () {
-                        //   Navigator.of(context).push(MaterialPageRoute(
-                        //     builder: (context) => const ChooseAccountTypeScreen(),
-                        //   ));
-                        // },
-                        ),
+                      text: 'CREATE YOUR ACCOUNT',
+                      color: Primary.orange,
+                      context: context,
+                      fontWeight: FontWeight.bold,
+                      circularRadius: 8,
+                      onTap: () {
+                        signup(
+                          emailController.text.trim(),
+                          passwordController.text.trim(),
+                          confirmPasswordController.text.trim(),
+                          context,
+                        );
+                      },
+                      isLoading: isLoading,
+                    ),
+                    const SizedBox(height: 20),
                   ],
                 ),
               ),
             ),
-          ]),
-        ));
+          ),
+        ),
+      ),
+    );
   }
+
 }

@@ -34,11 +34,11 @@ class _OtpBoxState extends State<OtpBox> {
       height: 48,
       textStyle: TextStyle(
         fontSize: 20,
-        color: Primary.black,
+        color: Primary.orange,
       ),
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(8),
-        border: Border.all(color: Primary.black.withOpacity(0.2)),
+        border: Border.all(color: Primary.orange),
       ),
     );
 
@@ -49,9 +49,9 @@ class _OtpBoxState extends State<OtpBox> {
         height: 1,
         margin: const EdgeInsets.only(bottom: 12),
         decoration: BoxDecoration(
-          color: Primary.black.withOpacity(0.15),
+          color: Primary.orange,
           borderRadius: BorderRadius.circular(8),
-          border: Border.all(color: Primary.black.withOpacity(0.2)),
+          border: Border.all(color: Primary.orange),
         ),
       ),
     );
@@ -61,7 +61,7 @@ class _OtpBoxState extends State<OtpBox> {
       width: double.maxFinite,
       decoration: BoxDecoration(
         borderRadius: BorderRadius.circular(20),
-        border: Border.all(color: Primary.black.withOpacity(0.2)),
+        border: Border.all(color: Primary.orange),
       ),
       child: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 30),

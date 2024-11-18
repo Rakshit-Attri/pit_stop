@@ -4,7 +4,7 @@ import '../../networkCalls/myDio.dart';
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
 import '../../utils/essentials.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../widgets/toast_manager.dart';
 import 'ChangePassword.dart';
@@ -25,6 +25,7 @@ class VerifyOtpScreen extends StatefulWidget {
 class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
   String? otpCode;
   bool isLoading = false;
+
   Future<void> _verifyOTP(String otp) async {
     try {
       setState(() {
@@ -38,8 +39,8 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
           context,
           MaterialPageRoute(
               builder: (context) => ChangePassword(
-                    email_id: widget.email_id,
-                  )),
+                email_id: widget.email_id,
+              )),
         );
       } else {
         ToastManager.errorToast("Failed to verify OTP. Please try again.");
@@ -55,6 +56,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
 
   @override
   Widget build(BuildContext context) {
+    final size = MediaQuery.of(context).size;
     return Scaffold(
       body: Container(
         decoration: const BoxDecoration(
@@ -64,15 +66,21 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
           ),
         ),
         child: Stack(
+
           children: [
             SingleChildScrollView(
-              child: Padding(
+
+        child: ConstrainedBox(
+        constraints: BoxConstraints(
+          minHeight: size.height,
+        ),
+        child:  Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 20),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     E.heightSpacer(140),
-                    E.myText('VERIFICATION', context: context, fontSize: 18),
+                    E.myText('VERIFICATION', context: context, fontSize: 25, color: Primary.orange),
                     E.heightSpacer(32),
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -99,7 +107,7 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                     E.purpleButton(
                         context: context,
                         text: 'VERIFY',
-                        color: Primary.white,
+                        color: Primary.orange,
                         fontWeight: FontWeight.bold,
                         onTap: () {
                           if (otpCode != null) {
@@ -108,9 +116,9 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                             ScaffoldMessenger.of(context).showSnackBar(
                               const SnackBar(
                                   content: Text(
-                                "Please enter the OTP",
-                                style: TextStyle(color: Colors.white),
-                              )),
+                                    "Please enter the OTP",
+                                    style: TextStyle(color: Colors.white),
+                                  )),
                             );
                           }
                         }),
@@ -140,11 +148,12 @@ class _VerifyOtpScreenState extends State<VerifyOtpScreen> {
                         ),
                       ),
                     ),
+                    E.heightSpacer(30), // Extra space at the bottom
                   ],
                 ),
               ),
             )
-          ],
+            )  ],
         ),
       ),
     );

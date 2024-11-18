@@ -63,13 +63,7 @@ class _ResentScreenState extends State<ResentScreen> {
                 color: Primary.white,
               ),
               E.heightSpacer(32),
-              E.myText(
-                'Your Password Has Been Resent',
-                fontSize: 20,
-                context: context,
-                color: Primary.white,
-              ),
-              // E.heightSpacer(32),
+
               E.purpleButton(
                   context: context,
                   text: 'DONE',

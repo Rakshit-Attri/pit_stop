@@ -1,407 +1,94 @@
 import 'package:flutter/material.dart';
-import 'package:pit_stop/data/stamdings_model.dart';
-import 'package:pit_stop/data/standings_data.dart';
+
+
+
+import '../../models/stamdings_model.dart';
+import '../../utils/colors.dart';
 
 class TeamDetailScreen extends StatelessWidget {
   const TeamDetailScreen({super.key, required this.team});
 
   final Team team;
 
+  Widget _buildInfoRow(IconData icon, String label, String value) {
+    return Row(
+      children: [
+        Icon(icon, color: Colors.white, size: 30),
+        const SizedBox(width: 10),
+        Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(value, style: const TextStyle(fontSize: 20, color: Colors.white)),
+            Text(label, style: const TextStyle(fontSize: 15, color: Colors.white)),
+          ],
+        ),
+      ],
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(
-          'team Details ${team.name}',
-        ),
+        title: Text('Team Details: ${team.name}'),
         elevation: 10,
-        backgroundColor: Colors.transparent.withOpacity(1),
+        backgroundColor: Primary.orange,
+        leading: IconButton(
+          icon: const Icon(Icons.arrow_back),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
-      body: SizedBox.expand(
-        child: Container(
-          padding: const EdgeInsets.all(20),
-          decoration: const BoxDecoration(
-            gradient: RadialGradient(
-              colors: [Colors.black87, Colors.black],
-              radius: 0.65,
-            ),
+      body: Container(
+        padding: const EdgeInsets.all(20),
+        decoration: const BoxDecoration(
+          gradient: RadialGradient(
+            colors: [Colors.black87, Colors.black],
+            radius: 0.65,
           ),
-          child: SingleChildScrollView(
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              mainAxisSize: MainAxisSize.max,
-              children: [
-                Container(
-                    child: Text(team.name,
-                        style: const TextStyle(fontSize: 40, color: Colors.white))),
-                Container(
-                    child: Text(team.carName,
-                        style: const TextStyle(fontSize: 40, color: Colors.white))),
-                const Text(
-                  '2024 Season',
-                  style: TextStyle(fontSize: 15, color: Colors.white),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    Container(
-                        child: Text(team.position,
-                            style:
-                                const TextStyle(fontSize: 40, color: Colors.white))),
-                    const Text(
-                      'Pos',
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    Container(
-                        child: Text(team.points,
-                            style:
-                                const TextStyle(fontSize: 30, color: Colors.white))),
-                    const Text(
-                      'PTS',
-                      style: TextStyle(fontSize: 15, color: Colors.white),
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.workspace_premium_rounded,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.wins,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'Wins',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.stacked_bar_chart_sharp,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.podiums,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'Podiums',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.volcano_rounded,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.poles,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'Poles',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.dnd_forwardslash_rounded,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.dnfs,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'DNFs',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    Container(
-                        child: Text(team.driver1,
-                            style:
-                                const TextStyle(fontSize: 20, color: Colors.white))),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    Container(
-                        child: Text(team.driver2,
-                            style:
-                                const TextStyle(fontSize: 20, color: Colors.white))),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.format_size_rounded,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.carName,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'Chassie',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.powerUnit,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'Power Unit',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.teamP,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'Team Principal',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    )
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.addchart_rounded,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.firstentry,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'First Entry',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.adjust_rounded,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.constchamp,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'First Win',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.workspace_premium_rounded,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.driverchamp,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'World Championships',
-                          style: TextStyle(fontSize: 15, color: Colors.white),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Row(
-                  children: [
-                    const Icon(
-                      Icons.calendar_today_rounded,
-                      color: Colors.white,
-                      size: 30,
-                    ),
-                    const SizedBox(
-                      width: 10,
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children: [
-                        Container(
-                            child: Text(team.base,
-                                style: const TextStyle(
-                                    fontSize: 20, color: Colors.white))),
-                        const Text(
-                          'Date of Birth',
-                          style: TextStyle(color: Colors.white, fontSize: 15),
-                        )
-                      ],
-                    ),
-                  ],
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
-                Container(
-                    child: Text(team.details,
-                        style: const TextStyle(fontSize: 20, color: Colors.white))),
-                const SizedBox(
-                  height: 15,
-                ),
-              ],
-            ),
+        ),
+        child: SingleChildScrollView(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(team.name, style: const TextStyle(fontSize: 40, color: Colors.white)),
+              Text(team.carName, style: const TextStyle(fontSize: 40, color: Colors.white)),
+              const Text('2024 Season', style: TextStyle(fontSize: 15, color: Colors.white)),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.star, 'Position', team.position),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.bar_chart, 'Points', team.points),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.workspace_premium, 'Wins', team.wins),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.stacked_bar_chart, 'Podiums', team.podiums),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.volcano, 'Poles', team.poles),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.dnd_forwardslash, 'DNFs', team.dnfs),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.person, 'Driver 1', team.driver1),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.person, 'Driver 2', team.driver2),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.car_repair, 'Chassis', team.carName),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.power, 'Power Unit', team.powerUnit),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.person_pin_circle, 'Team Principal', team.teamP),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.addchart, 'First Entry', team.firstentry),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.adjust, 'Constructor Championships', team.constchamp),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.workspace_premium, 'Driver Championships', team.driverchamp),
+              const SizedBox(height: 15),
+              _buildInfoRow(Icons.location_on, 'Base', team.base),
+              const SizedBox(height: 15),
+              Text(
+                team.details,
+                style: const TextStyle(fontSize: 20, color: Colors.white),
+              ),
+            ],
           ),
         ),
       ),
