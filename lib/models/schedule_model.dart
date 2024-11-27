@@ -19,6 +19,7 @@ class Race {
   String race;
   String details;
 
+
   Race({
     required this.day,
     required this.month,
@@ -48,7 +49,7 @@ class Race {
       round: json['round'] ?? '',
       title: json['title'] ?? '',
       city: json['city'] ?? '',
-      imageUrl: json['imageUrl'] ?? '',
+      imageUrl: json['image_url'] ?? '',
       track: json['track'] ?? '',
       duration: json['duration'] ?? '',
       distance: json['distance'] ?? '',

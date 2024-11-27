@@ -53,7 +53,7 @@ class Driver {
       dob: json['dob'] ?? '',
       country: json['country'] ?? '',
       details: json['details'] ?? '',
-      imageUrl: json['imageUrl'] ?? '',
+      imageUrl: json['image_url'] ?? '',
     );
   }
 

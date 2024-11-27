@@ -16,6 +16,7 @@ class Standings extends StatefulWidget {
   @override
   _StandingsState createState() => _StandingsState();
 }
+
 class _StandingsState extends State<Standings>
     with SingleTickerProviderStateMixin {
   late TabController _tabController;
@@ -88,9 +89,9 @@ class _StandingsState extends State<Standings>
       body: Container(
         decoration: const BoxDecoration(
             gradient: RadialGradient(
-              colors: [Colors.black87, Colors.black],
-              radius: 0.65,
-            )),
+          colors: [Colors.black87, Colors.black],
+          radius: 0.65,
+        )),
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -116,231 +117,232 @@ class _StandingsState extends State<Standings>
                     // First tab: Driver Standings
                     isDriversLoading
                         ? const Center(
-                      child: CircularProgressIndicator(
-                        color: Colors.orange,
-                      ),
-                    )
+                            child: CircularProgressIndicator(
+                              color: Colors.orange,
+                            ),
+                          )
                         : drivers.isNotEmpty
-                        ? ListView.builder(
-                        itemCount: drivers.length,
-                        itemBuilder: (ctx, index) => Stack(children: [
-                          ClipRRect(
-                              borderRadius: const BorderRadius.all(
-                                  Radius.circular(25)),
-                              child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                      sigmaX: 5, sigmaY: 5),
-                                  child: Padding(
-                                      padding:
-                                      const EdgeInsets.all(3),
-                                      child: Container(
-                                        padding:
-                                        const EdgeInsets.all(5),
-                                        height: 70,
-                                        decoration: BoxDecoration(
-                                            color: Colors.grey
-                                                .withOpacity(0.1),
-                                            borderRadius:
-                                            const BorderRadius
-                                                .all(Radius
-                                                .circular(
-                                                25))),
-                                        child: ListTile(
-                                          leading: Column(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment
-                                                .center,
-                                            children: [
-                                              E.myText(
-                                                  drivers[index]
-                                                      .number,
-                                                  color:
-                                                  Colors.white,
-                                                  context: context,
-                                                  fontSize: 22),
-                                            ],
-                                          ),
-                                          title: Row(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment
-                                                .spaceBetween,
-                                            children: [
-                                              SizedBox(
-                                                width: 200,
-                                                child: Column(
-                                                  children: [
-                                                    E.myText(
-                                                        drivers[
-                                                        index]
-                                                            .name,
-                                                        color: Colors
-                                                            .white,
-                                                        context:
-                                                        context,
-                                                        fontSize:
-                                                        20),
-                                                    E.myText(
-                                                        drivers[
-                                                        index]
-                                                            .team,
-                                                        color: Colors
-                                                            .white,
-                                                        context:
-                                                        context,
-                                                        fontSize:
-                                                        18),
-                                                  ],
-                                                ),
-                                              ),
-                                              Column(
-                                                children: [
-                                                  E.myText(
-                                                      drivers[index]
-                                                          .points.toString(),
-                                                      color: Colors
-                                                          .white,
-                                                      context:
-                                                      context,
-                                                      fontSize: 16),
-                                                  E.myText('pts',
-                                                      color: Colors
-                                                          .white,
-                                                      context:
-                                                      context,
-                                                      fontSize: 16),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          onTap: () {
-                                            Navigator.of(context)
-                                                .push(MaterialPageRoute(
-                                                builder: (ctx) =>
-                                                    DriverDetailScreen(
-                                                      driver: drivers[
-                                                      index],
-                                                    )));
-                                          },
-                                        ),
-                                      ))))
-                        ]))
-                        : const Center(
-                        child: Text(
-                          'No driver standings available',
-                          style: TextStyle(color: Colors.white),
-                        )),
+                            ? ListView.builder(
+                                itemCount: drivers.length,
+                                itemBuilder: (ctx, index) => Stack(children: [
+                                      ClipRRect(
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(25)),
+                                          child: BackdropFilter(
+                                              filter: ImageFilter.blur(
+                                                  sigmaX: 5, sigmaY: 5),
+                                              child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(3),
+                                                  child: Container(
+                                                    padding:
+                                                        const EdgeInsets.all(5),
+                                                    height: 70,
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.grey
+                                                            .withOpacity(0.1),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .all(
+                                                                Radius.circular(
+                                                                    25))),
+                                                    child: ListTile(
+                                                      leading: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          E.myText(
+                                                              drivers[index]
+                                                                  .number,
+                                                              color:
+                                                                  Colors.white,
+                                                              context: context,
+                                                              fontSize: 22),
+                                                        ],
+                                                      ),
+                                                      title: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: 200,
+                                                            child: Column(
+                                                              children: [
+                                                                E.myText(
+                                                                    drivers[index]
+                                                                        .name,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    context:
+                                                                        context,
+                                                                    fontSize:
+                                                                        20),
+                                                                E.myText(
+                                                                    drivers[index]
+                                                                        .team,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    context:
+                                                                        context,
+                                                                    fontSize:
+                                                                        18),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          Column(
+                                                            children: [
+                                                              E.myText(
+                                                                  drivers[index]
+                                                                      .points
+                                                                      .toString(),
+                                                                  color: Colors
+                                                                      .white,
+                                                                  context:
+                                                                      context,
+                                                                  fontSize: 16),
+                                                              E.myText('pts',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  context:
+                                                                      context,
+                                                                  fontSize: 16),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      onTap: () {
+                                                        Navigator.of(context).push(
+                                                            MaterialPageRoute(
+                                                                builder: (ctx) =>
+                                                                    DriverDetailScreen(
+                                                                      driver: drivers[
+                                                                          index],
+                                                                    )));
+                                                      },
+                                                    ),
+                                                  ))))
+                                    ]))
+                            : const Center(
+                                child: Text(
+                                'No driver standings available',
+                                style: TextStyle(color: Colors.white),
+                              )),
 
                     // Second tab: Team Standings
                     isTeamsLoading
                         ? const Center(
-                      child: CircularProgressIndicator(
-                        color: Colors.orange,
-                      ),
-                    )
+                            child: CircularProgressIndicator(
+                              color: Colors.orange,
+                            ),
+                          )
                         : teams.isNotEmpty
-                        ? ListView.builder(
-                        itemCount: teams.length,
-                        itemBuilder: (ctx, index) => Stack(children: [
-                          ClipRRect(
-                              borderRadius: const BorderRadius.all(
-                                  Radius.circular(25)),
-                              child: BackdropFilter(
-                                  filter: ImageFilter.blur(
-                                      sigmaX: 5, sigmaY: 5),
-                                  child: Padding(
-                                      padding:
-                                      const EdgeInsets.all(3),
-                                      child: Container(
-                                        decoration: BoxDecoration(
-                                            color: Colors.grey
-                                                .withOpacity(0.1),
-                                            borderRadius:
-                                            const BorderRadius
-                                                .all(Radius
-                                                .circular(
-                                                25))),
-                                        child: ListTile(
-                                          leading: Column(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment
-                                                .center,
-                                            children: [
-                                              E.myText(
-                                                  teams[index]
-                                                      .position,
-                                                  color:
-                                                  Colors.white,
-                                                  context: context,
-                                                  fontSize: 22),
-                                            ],
-                                          ),
-                                          title: Row(
-                                            mainAxisAlignment:
-                                            MainAxisAlignment
-                                                .spaceBetween,
-                                            children: [
-                                              SizedBox(
-                                                width: 200,
-                                                child: Column(
-                                                  children: [
-                                                    E.myText(
-                                                        teams[index]
-                                                            .name,
-                                                        color: Colors
-                                                            .white,
-                                                        context:
-                                                        context,
-                                                        fontSize:
-                                                        20),
-                                                    E.myText(
-                                                        teams[index]
-                                                            .points.toString(),
-                                                        color: Colors
-                                                            .white,
-                                                        context:
-                                                        context,
-                                                        fontSize:
-                                                        16),
-                                                  ],
-                                                ),
-                                              ),
-                                              Column(
-                                                children: [
-                                                  E.myText(
-                                                      teams[index]
-                                                          .wins.toString(),
-                                                      color: Colors
-                                                          .white,
-                                                      context:
-                                                      context,
-                                                      fontSize: 16),
-                                                  E.myText('wins',
-                                                      color: Colors
-                                                          .white,
-                                                      context:
-                                                      context,
-                                                      fontSize: 16),
-                                                ],
-                                              ),
-                                            ],
-                                          ),
-                                          onTap: () {
-                                            Navigator.of(context)
-                                                .push(MaterialPageRoute(
-                                                builder: (ctx) =>
-                                                    TeamDetailScreen(
-                                                      team: teams[
-                                                      index],
-                                                    )));
-                                          },
-                                        ),
-                                      ))))
-                        ]))
-                        : const Center(
-                        child: Text(
-                          'No team standings available',
-                          style: TextStyle(color: Colors.white),
-                        )),
+                            ? ListView.builder(
+                                itemCount: teams.length,
+                                itemBuilder: (ctx, index) => Stack(children: [
+                                      ClipRRect(
+                                          borderRadius: const BorderRadius.all(
+                                              Radius.circular(25)),
+                                          child: BackdropFilter(
+                                              filter: ImageFilter.blur(
+                                                  sigmaX: 5, sigmaY: 5),
+                                              child: Padding(
+                                                  padding:
+                                                      const EdgeInsets.all(3),
+                                                  child: Container(
+                                                    decoration: BoxDecoration(
+                                                        color: Colors.grey
+                                                            .withOpacity(0.1),
+                                                        borderRadius:
+                                                            const BorderRadius
+                                                                .all(
+                                                                Radius.circular(
+                                                                    25))),
+                                                    child: ListTile(
+                                                      leading: Column(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .center,
+                                                        children: [
+                                                          E.myText(
+                                                              teams[index]
+                                                                  .position,
+                                                              color:
+                                                                  Colors.white,
+                                                              context: context,
+                                                              fontSize: 22),
+                                                        ],
+                                                      ),
+                                                      title: Row(
+                                                        mainAxisAlignment:
+                                                            MainAxisAlignment
+                                                                .spaceBetween,
+                                                        children: [
+                                                          SizedBox(
+                                                            width: 200,
+                                                            child: Column(
+                                                              children: [
+                                                                E.myText(
+                                                                    teams[index]
+                                                                        .name,
+                                                                    color: Colors
+                                                                        .white,
+                                                                    context:
+                                                                        context,
+                                                                    fontSize:
+                                                                        20),
+                                                                E.myText(
+                                                                    teams[index]
+                                                                        .points
+                                                                        .toString(),
+                                                                    color: Colors
+                                                                        .white,
+                                                                    context:
+                                                                        context,
+                                                                    fontSize:
+                                                                        16),
+                                                              ],
+                                                            ),
+                                                          ),
+                                                          Column(
+                                                            children: [
+                                                              E.myText(
+                                                                  teams[index]
+                                                                      .wins
+                                                                      .toString(),
+                                                                  color: Colors
+                                                                      .white,
+                                                                  context:
+                                                                      context,
+                                                                  fontSize: 16),
+                                                              E.myText('wins',
+                                                                  color: Colors
+                                                                      .white,
+                                                                  context:
+                                                                      context,
+                                                                  fontSize: 16),
+                                                            ],
+                                                          ),
+                                                        ],
+                                                      ),
+                                                      onTap: () {
+                                                        Navigator.of(context).push(
+                                                            MaterialPageRoute(
+                                                                builder: (ctx) =>
+                                                                    TeamDetailScreen(
+                                                                      team: teams[
+                                                                          index],
+                                                                    )));
+                                                      },
+                                                    ),
+                                                  ))))
+                                    ]))
+                            : const Center(
+                                child: Text(
+                                'No team standings available',
+                                style: TextStyle(color: Colors.white),
+                              )),
                   ],
                 ),
               ),

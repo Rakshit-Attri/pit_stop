@@ -30,7 +30,7 @@ class CircuitDetail extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'Round ${race.round}',
+                'Round ${race.round} ',
                 style: const TextStyle(color: Colors.white, fontSize: 20),
               ),
               const SizedBox(height: 15),
@@ -71,12 +71,14 @@ class CircuitDetail extends StatelessWidget {
                       _buildInfoRow(Icons.speed_rounded, race.speed, 'Top Speed'),
                       const SizedBox(height: 15),
                       _buildInfoRow(Icons.wifi_channel_rounded, race.elevation, 'Elevation'),
+
                     ],
                   ),
-               //  Image.network( HelperFunctions.getMediaFetchUrl(race.imageUrl))
+                  Image.network(HelperFunctions.getMediaFetchUrl(race.imageUrl),width: E.width(context)*0.4,height:E.height(context)*0.25,),
                 ],
               ),
               const SizedBox(height: 15),
+
               _buildScheduleCard(),
               const SizedBox(height: 15),
               Text(

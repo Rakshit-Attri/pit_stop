@@ -20,12 +20,31 @@ class HelperFunctions {
       }
     });
   }
+  static  String getTimeAgo(timestamp) {
+    if (timestamp.toString().isNotEmpty) {
+      final now = DateTime.now();
+      final dateTime = timestamp;
+      final difference = now.difference(dateTime);
+
+      if (difference.inDays > 0) {
+        return '${difference.inDays}d';
+      } else if (difference.inHours > 0) {
+        return '${difference.inHours}h';
+      } else if (difference.inMinutes > 0) {
+        return '${difference.inMinutes}m';
+      } else {
+        return 'Now';
+      }
+    } else {
+      return "";
+    }
+  }
 
   static String getMediaFetchUrl(String url) {
     if (url.contains("https://")) {
       return url;
     }
-    String result = Constants.baseUrl + url;
+    String result = Constants.baseUrl+"api"+ url;
     return result.replaceFirst("//media", "/media");
   }
 
@@ -36,4 +55,5 @@ class HelperFunctions {
   //   }
   //   return result;
   // }
+
 }

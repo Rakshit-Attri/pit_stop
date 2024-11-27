@@ -33,6 +33,7 @@ class _ScheduleState extends State<Schedule> with SingleTickerProviderStateMixin
         isLoading = true; // Start loading
       });
       final response = await MyDio().get('${Constants.baseUrl}api/Races');
+      print(response);
       final List<dynamic> data = response.data;
       setState(() {
         races = data.map((json) => Race.fromJson(json)).toList();
@@ -188,6 +189,7 @@ class _ScheduleState extends State<Schedule> with SingleTickerProviderStateMixin
                         child: Text('No upcoming races')), // Placeholder when list is empty
 
                     // Second tab: Past Races
+
                     races.isNotEmpty
                         ? ListView.builder(
                         itemCount: races.length,
