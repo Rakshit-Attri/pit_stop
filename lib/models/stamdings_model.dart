@@ -159,7 +159,7 @@ class Team {
       driverchamp: json['driverchamp'] ?? '',
       base: json['base'] ?? '',
       details: json['details'] ?? '',
-      imageUrl: json['imageUrl'] ?? '',
+      imageUrl: json['image_url'] ?? '',
     );
   }
 
