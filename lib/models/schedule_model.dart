@@ -1,6 +1,4 @@
 class Race {
-  String day;
-  String month;
   String round;
   String title;
   String city;
@@ -12,17 +10,15 @@ class Race {
   String turns;
   String speed;
   String elevation;
-  String fp1;
-  String fp2;
-  String fp3;
-  String quali;
-  String race;
+  int fp1;
+  int fp2;
+  int fp3;
+  int quali;
+  int race;
   String details;
-
+  int startTime;
 
   Race({
-    required this.day,
-    required this.month,
     required this.round,
     required this.title,
     required this.city,
@@ -40,12 +36,11 @@ class Race {
     required this.quali,
     required this.race,
     required this.details,
+    required this.startTime,
   });
 
   factory Race.fromJson(Map<String, dynamic> json) {
     return Race(
-      day: json['day'] ?? '',
-      month: json['month'] ?? '',
       round: json['round'] ?? '',
       title: json['title'] ?? '',
       city: json['city'] ?? '',
@@ -57,23 +52,22 @@ class Race {
       turns: json['turns'] ?? '',
       speed: json['speed'] ?? '',
       elevation: json['elevation'] ?? '',
-      fp1: json['fp1'] ?? '',
-      fp2: json['fp2'] ?? '',
-      fp3: json['fp3'] ?? '',
-      quali: json['quali'] ?? '',
-      race: json['race'] ?? '',
+      fp1: json['fp1'] ?? 0,
+      fp2: json['fp2'] ?? 0,
+      fp3: json['fp3'] ?? 0,
+      quali: json['quali'] ?? 0,
+      race: json['race'] ?? 0,
       details: json['details'] ?? '',
+      startTime: json['start_time'] ?? 0,
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
-      'day': day,
-      'month': month,
       'round': round,
       'title': title,
       'city': city,
-      'imageUrl': imageUrl,
+      'image_url': imageUrl,
       'track': track,
       'duration': duration,
       'distance': distance,
@@ -87,6 +81,7 @@ class Race {
       'quali': quali,
       'race': race,
       'details': details,
+      'start_time': startTime,
     };
   }
 }

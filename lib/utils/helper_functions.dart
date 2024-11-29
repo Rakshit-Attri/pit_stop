@@ -20,25 +20,42 @@ class HelperFunctions {
       }
     });
   }
-  static  String getTimeAgo(timestamp) {
+  static String getTimeAgo(int timestamp) {
     if (timestamp.toString().isNotEmpty) {
       final now = DateTime.now();
-      final dateTime = timestamp;
+      final dateTime = DateTime.fromMillisecondsSinceEpoch(timestamp); // Convert timestamp to DateTime
       final difference = now.difference(dateTime);
 
-      if (difference.inDays > 0) {
-        return '${difference.inDays}d';
-      } else if (difference.inHours > 0) {
-        return '${difference.inHours}h';
-      } else if (difference.inMinutes > 0) {
-        return '${difference.inMinutes}m';
+      if (difference.isNegative) {
+        // Future event
+        final futureDifference = dateTime.difference(now); // Difference in the future
+        if (futureDifference.inDays > 0) {
+          return 'In ${futureDifference.inDays}d';
+        } else if (futureDifference.inHours > 0) {
+          return 'In ${futureDifference.inHours}h';
+        } else if (futureDifference.inMinutes > 0) {
+          return 'In ${futureDifference.inMinutes}m';
+        } else {
+          return 'Just Now';
+        }
       } else {
-        return 'Now';
+        // Past event
+        if (difference.inDays > 0) {
+          return '${difference.inDays}d ago';
+        } else if (difference.inHours > 0) {
+          return '${difference.inHours}h ago';
+        } else if (difference.inMinutes > 0) {
+          return '${difference.inMinutes}m ago';
+        } else {
+          return 'Now';
+        }
       }
     } else {
       return "";
     }
   }
+
+
 
   static String getMediaFetchUrl(String url) {
     if (url.contains("https://")) {

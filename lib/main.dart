@@ -41,10 +41,6 @@ class MyApp extends StatelessWidget {
 /*
 
 Home page - Latest schedule
-schedule upcoming and past
 Races detail page on tap of schedule arrow
-Admin panel
 add images in driver details and minor changes in UI
-Image url , Image_url
-
  */

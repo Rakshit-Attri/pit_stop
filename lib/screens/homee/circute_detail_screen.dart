@@ -123,15 +123,16 @@ class CircuitDetail extends StatelessWidget {
       ),
       child: Column(
         children: [
-          _buildScheduleRow('Fri', race.fp1),
+
+          _buildScheduleRow('Fri', HelperFunctions.getTimeAgo(race.fp1)),
           const SizedBox(height: 15),
-          _buildScheduleRow('Fri FP2', race.fp2),
+          _buildScheduleRow('Fri FP2', HelperFunctions.getTimeAgo(race.fp1)),
           const SizedBox(height: 15),
-          _buildScheduleRow('Sat FP3', race.fp3),
+          _buildScheduleRow('Sat FP3', HelperFunctions.getTimeAgo(race.fp1)),
           const SizedBox(height: 15),
-          _buildScheduleRow('Sat Quali', race.quali),
+          _buildScheduleRow('Sat Quali', race.quali.toString()),
           const SizedBox(height: 15),
-          _buildScheduleRow('Sun Race', race.race),
+          _buildScheduleRow('Sun Race', race.race.toString()),
         ],
       ),
     );
