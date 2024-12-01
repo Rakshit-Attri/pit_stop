@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-
+import 'package:pit_stop/utils/essentials.dart';
+import 'package:pit_stop/utils/helper_functions.dart';
 
 import '../../models/stamdings_model.dart';
 import '../../utils/colors.dart';
@@ -23,8 +24,10 @@ class DriverDetailScreen extends StatelessWidget {
           Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              Text(value, style: const TextStyle(fontSize: 20, color: Colors.white)),
-              Text(label, style: const TextStyle(fontSize: 15, color: Colors.white)),
+              Text(value,
+                  style: const TextStyle(fontSize: 20, color: Colors.white)),
+              Text(label,
+                  style: const TextStyle(fontSize: 15, color: Colors.white)),
             ],
           ),
         ],
@@ -61,35 +64,51 @@ class DriverDetailScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 15, color: Colors.white),
               ),
               const SizedBox(height: 20),
-              _buildInfoRow(
-                icon: Icons.format_list_numbered,
-                value: driver.number,
-                label: 'Pos',
-              ),
-              _buildInfoRow(
-                icon: Icons.score,
-                value: driver.points.toString(),
-                label: 'PTS',
-              ),
-              _buildInfoRow(
-                icon: Icons.workspace_premium_rounded,
-                value: driver.wins.toString(),
-                label: 'Wins',
-              ),
-              _buildInfoRow(
-                icon: Icons.stacked_bar_chart,
-                value: driver.podiums.toString(),
-                label: 'Podiums',
-              ),
-              _buildInfoRow(
-                icon: Icons.volcano_rounded,
-                value: driver.poles.toString(),
-                label: 'Poles',
-              ),
-              _buildInfoRow(
-                icon: Icons.dnd_forwardslash_rounded,
-                value: driver.dnfs.toString(),
-                label: 'DNFs',
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      _buildInfoRow(
+                        icon: Icons.format_list_numbered,
+                        value: driver.number,
+                        label: 'Pos',
+                      ),
+                      _buildInfoRow(
+                        icon: Icons.score,
+                        value: driver.points.toString(),
+                        label: 'PTS',
+                      ),
+                      _buildInfoRow(
+                        icon: Icons.workspace_premium_rounded,
+                        value: driver.wins.toString(),
+                        label: 'Wins',
+                      ),
+                      _buildInfoRow(
+                        icon: Icons.stacked_bar_chart,
+                        value: driver.podiums.toString(),
+                        label: 'Podiums',
+                      ),
+                      _buildInfoRow(
+                        icon: Icons.volcano_rounded,
+                        value: driver.poles.toString(),
+                        label: 'Poles',
+                      ),
+                      _buildInfoRow(
+                        icon: Icons.dnd_forwardslash_rounded,
+                        value: driver.dnfs.toString(),
+                        label: 'DNFs',
+                      ),
+                    ],
+                  ),
+                  Image.network(
+                    HelperFunctions.getMediaFetchUrl(driver.imageUrl),
+                    width: E.width(context) * 0.56,
+                    //height: 350,
+                    height: E.height(context) * 0.35,
+                  ),
+                ],
               ),
               _buildInfoRow(
                 icon: Icons.emoji_flags,

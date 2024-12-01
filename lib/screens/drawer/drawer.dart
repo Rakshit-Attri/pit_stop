@@ -31,13 +31,18 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Colors.orange,
+      backgroundColor: Primary.orange,
       elevation: 10,
-      width: E.width(context)*0.5,
+      width: E.width(context) * 0.5,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 38, 16, 0),
         child: Column(
           children: [
+            Container(
+              height: 100,
+              width: 100,
+              child: SvgPicture.asset(ImageConstant.logo),
+            ),
             Container(
               padding: const EdgeInsets.symmetric(vertical: 20),
               child: Row(
@@ -100,5 +105,4 @@ class _DrawerWidgetState extends State<DrawerWidget> {
       ),
     );
   }
-
 }

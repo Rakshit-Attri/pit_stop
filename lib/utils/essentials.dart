@@ -119,7 +119,7 @@ class E {
     List<Widget>? actions,
     centerTitle = true,
     double fontSize = 18,
-    double elevation = 0,
+    double elevation = 10,
     Widget? leading,
     Widget? titleWidget,
     Color? iconColor,

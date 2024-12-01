@@ -13,10 +13,10 @@ class CircuitDetail extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text('Circuit Details ${race.title}'),
-        elevation: 10,
-        backgroundColor: Primary.orange,
-      ),
+          title: Text('Circuit Details ${race.title}'),
+          elevation: 60,
+          backgroundColor: Colors.blue,
+          shadowColor: Colors.blueAccent),
       body: Container(
         decoration: const BoxDecoration(
           gradient: RadialGradient(
@@ -48,37 +48,46 @@ class CircuitDetail extends StatelessWidget {
                 style: const TextStyle(color: Colors.white, fontSize: 30),
               ),
               const SizedBox(height: 15),
-              Text(
-                race.duration,
-                style: const TextStyle(color: Colors.white, fontSize: 15),
-              ),
-              const SizedBox(height: 15),
-              Text(
-                race.distance,
-                style: const TextStyle(color: Colors.white, fontSize: 40),
-              ),
-              const SizedBox(height: 15),
               Row(
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Column(
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      _buildInfoRow(Icons.restart_alt_rounded, race.laps, 'No. of Laps'),
+                      Text(
+                        'Duration - ${race.duration}',
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 15),
+                      ),
                       const SizedBox(height: 15),
-                      _buildInfoRow(Icons.turn_right_rounded, race.turns, 'Turns'),
+                      Text(
+                        'Length ${race.distance}',
+                        style:
+                            const TextStyle(color: Colors.white, fontSize: 15),
+                      ),
                       const SizedBox(height: 15),
-                      _buildInfoRow(Icons.speed_rounded, race.speed, 'Top Speed'),
+                      _buildInfoRow(
+                          Icons.restart_alt_rounded, race.laps, 'No. of Laps'),
                       const SizedBox(height: 15),
-                      _buildInfoRow(Icons.wifi_channel_rounded, race.elevation, 'Elevation'),
-
+                      _buildInfoRow(
+                          Icons.turn_right_rounded, race.turns, 'Turns'),
+                      const SizedBox(height: 15),
+                      _buildInfoRow(
+                          Icons.speed_rounded, race.speed, 'Top Speed'),
+                      const SizedBox(height: 15),
+                      _buildInfoRow(Icons.wifi_channel_rounded, race.elevation,
+                          'Elevation'),
                     ],
                   ),
-                  Image.network(HelperFunctions.getMediaFetchUrl(race.imageUrl),width: E.width(context)*0.4,height:E.height(context)*0.25,),
+                  Image.network(
+                    HelperFunctions.getMediaFetchUrl(race.imageUrl),
+                    width: E.width(context) * 0.56,
+                    //height: 350,
+                    height: E.height(context) * 0.35,
+                  ),
                 ],
               ),
               const SizedBox(height: 15),
-
               _buildScheduleCard(),
               const SizedBox(height: 15),
               Text(
@@ -123,7 +132,6 @@ class CircuitDetail extends StatelessWidget {
       ),
       child: Column(
         children: [
-
           _buildScheduleRow('Fri', HelperFunctions.getTimeAgo(race.fp1)),
           const SizedBox(height: 15),
           _buildScheduleRow('Fri FP2', HelperFunctions.getTimeAgo(race.fp1)),

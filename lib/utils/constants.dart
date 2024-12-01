@@ -2,8 +2,8 @@ class Constants {
   // static String baseUrl = "https://beatific.incuwiseservers.co.in/";
 
   // static String baseUrl = "http://192.168.1.42:3000/";
-  //static String baseUrl = "https://pitstop.sparkspite.com/";
-  static String baseUrl = "http://10.0.2.2:7788/";
+  static String baseUrl = "https://pitstop.sparkspite.com/";
+  //static String baseUrl = "http://10.0.2.2:7788/";
 
   static String serverUrl = "beatific.incuwiseservers.co.in";
   static String chatSocket = "wss://beatific.incuwiseservers.co.in/socket/chat";

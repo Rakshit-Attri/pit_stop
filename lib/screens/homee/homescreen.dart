@@ -1,10 +1,12 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
 
 import 'package:pit_stop/models/schedule_model.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/essentials.dart';
+import '../../utils/image_constants.dart';
 import '../drawer/drawer.dart';
 
 class Homescreen extends StatefulWidget {
@@ -22,7 +24,13 @@ class _HomescreenState extends State<Homescreen> {
     return Scaffold(
       backgroundColor: Colors.black,
       appBar: AppBar(
-        elevation: 10,
+        elevation: 50,
+        title: Container(
+          height: 60,
+          width: 60,
+          child: SvgPicture.asset(ImageConstant.logo),
+        ),
+        shadowColor: Colors.blue,
         backgroundColor: Primary.orange,
       ),
       drawer: const DrawerWidget(),
@@ -85,7 +93,8 @@ class _HomescreenState extends State<Homescreen> {
                                       context: context,
                                       color: Colors.deepOrange[600],
                                       fontSize: 20),
-                                  E.myText('pts', context: context, fontSize: 16),
+                                  E.myText('pts',
+                                      context: context, fontSize: 16),
                                 ],
                               ),
                             ),

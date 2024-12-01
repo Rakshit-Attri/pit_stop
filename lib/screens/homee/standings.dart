@@ -81,10 +81,11 @@ class _StandingsState extends State<Standings>
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 10,
+        elevation: 60,
         centerTitle: true,
         title: E.myText("STANDINGS", context: context, fontSize: 20),
-        backgroundColor: Primary.orange,
+        backgroundColor: Color.fromARGB(255, 239, 72, 0),
+        shadowColor: Colors.redAccent,
       ),
       body: Container(
         decoration: const BoxDecoration(
@@ -279,30 +280,33 @@ class _StandingsState extends State<Standings>
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          SizedBox(
+                                                          Container(
                                                             width: 200,
-                                                            child: Column(
-                                                              children: [
-                                                                E.myText(
-                                                                    teams[index]
-                                                                        .name,
-                                                                    color: Colors
-                                                                        .white,
-                                                                    context:
-                                                                        context,
-                                                                    fontSize:
-                                                                        20),
-                                                                E.myText(
-                                                                    teams[index]
-                                                                        .points
-                                                                        .toString(),
-                                                                    color: Colors
-                                                                        .white,
-                                                                    context:
-                                                                        context,
-                                                                    fontSize:
-                                                                        16),
-                                                              ],
+                                                            child: Center(
+                                                              child: Column(
+                                                                children: [
+                                                                  E.myText(
+                                                                      teams[
+                                                                              index]
+                                                                          .name,
+                                                                      color: Colors
+                                                                          .white,
+                                                                      context:
+                                                                          context,
+                                                                      fontSize:
+                                                                          20),
+                                                                  E.myText(
+                                                                      teams[index]
+                                                                          .points
+                                                                          .toString(),
+                                                                      color: Colors
+                                                                          .white,
+                                                                      context:
+                                                                          context,
+                                                                      fontSize:
+                                                                          16),
+                                                                ],
+                                                              ),
                                                             ),
                                                           ),
                                                           Column(

@@ -18,7 +18,8 @@ class Schedule extends StatefulWidget {
   _ScheduleState createState() => _ScheduleState();
 }
 
-class _ScheduleState extends State<Schedule> with SingleTickerProviderStateMixin {
+class _ScheduleState extends State<Schedule>
+    with SingleTickerProviderStateMixin {
   late TabController _tabController;
   List<dynamic> upcomingRaces = [];
   List<dynamic> pastRaces = [];
@@ -41,8 +42,10 @@ class _ScheduleState extends State<Schedule> with SingleTickerProviderStateMixin
       final fetchedPastRaces = data['past'] ?? [];
 
       setState(() {
-        upcomingRaces = fetchedUpcomingRaces.map((json) => Race.fromJson(json)).toList();
-        pastRaces = fetchedPastRaces.map((json) => Race.fromJson(json)).toList();
+        upcomingRaces =
+            fetchedUpcomingRaces.map((json) => Race.fromJson(json)).toList();
+        pastRaces =
+            fetchedPastRaces.map((json) => Race.fromJson(json)).toList();
         isLoading = false;
       });
     } catch (e) {
@@ -70,17 +73,18 @@ class _ScheduleState extends State<Schedule> with SingleTickerProviderStateMixin
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        elevation: 10,
+        elevation: 70,
         centerTitle: true,
         title: E.myText("SCHEDULE", context: context, fontSize: 20),
         backgroundColor: Primary.orange,
+        shadowColor: Colors.orangeAccent,
       ),
       body: Container(
         decoration: const BoxDecoration(
             gradient: RadialGradient(
-              colors: [Colors.black87, Colors.black],
-              radius: 0.65,
-            )),
+          colors: [Colors.black87, Colors.black],
+          radius: 0.65,
+        )),
         child: Padding(
           padding: const EdgeInsets.all(20),
           child: Column(
@@ -96,119 +100,228 @@ class _ScheduleState extends State<Schedule> with SingleTickerProviderStateMixin
                 ),
               ),
               E.heightSpacer(20),
-
               Expanded(
                 child: isLoading
-                    ? Center(child: CircularProgressIndicator(color: Colors.orange,))
+                    ? Center(
+                        child: CircularProgressIndicator(
+                        color: Colors.orange,
+                      ))
                     : TabBarView(
-                  controller: _tabController,
-                  children: [
-                    // First tab: Upcoming Races
-                    upcomingRaces.isNotEmpty
-                        ? ListView.builder(
-                      itemCount: upcomingRaces.length,
-                      itemBuilder: (ctx, index) => Stack(
+                        controller: _tabController,
                         children: [
-                          ClipRRect(
-                            borderRadius: const BorderRadius.all(Radius.circular(25)),
-                            child: BackdropFilter(
-                              filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                              child: Padding(
-                                padding: const EdgeInsets.all(3),
-                                child: Container(
-                                  decoration: BoxDecoration(
-                                      color: Colors.grey.withOpacity(0.1),
-                                      borderRadius: const BorderRadius.all(Radius.circular(25))),
-                                  child: ListTile(
-                                    leading: Column(
-                                      crossAxisAlignment: CrossAxisAlignment.center,
-                                      mainAxisAlignment: MainAxisAlignment.center,
-                                      children: [
-                                        E.myText(HelperFunctions.getTimeAgo(upcomingRaces[index].startTime),
-                                            color: Colors.grey[350],
-                                            context: context),
-                                      ],
-                                    ),
-                                    title: Row(
-                                      mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                      children: [
-                                        SizedBox(
-                                          width: 200,
-                                          child: Column(
-                                            children: [
-                                              E.myText(upcomingRaces[index].round, color: Colors.white, context: context, fontSize: 16),
-                                              E.myText(upcomingRaces[index].title, color: Colors.white, context: context, fontWeight: FontWeight.bold, fontSize: 18),
-                                              E.myText(upcomingRaces[index].city, color: Colors.white, context: context, fontSize: 16),
-                                            ],
+                          // First tab: Upcoming Races
+                          upcomingRaces.isNotEmpty
+                              ? ListView.builder(
+                                  itemCount: upcomingRaces.length,
+                                  itemBuilder: (ctx, index) => Stack(
+                                    children: [
+                                      ClipRRect(
+                                        borderRadius: const BorderRadius.all(
+                                            Radius.circular(25)),
+                                        child: BackdropFilter(
+                                          filter: ImageFilter.blur(
+                                              sigmaX: 5, sigmaY: 5),
+                                          child: Padding(
+                                            padding: const EdgeInsets.all(3),
+                                            child: Container(
+                                              decoration: BoxDecoration(
+                                                  color: Colors.grey
+                                                      .withOpacity(0.1),
+                                                  borderRadius:
+                                                      const BorderRadius.all(
+                                                          Radius.circular(25))),
+                                              child: ListTile(
+                                                leading: Column(
+                                                  crossAxisAlignment:
+                                                      CrossAxisAlignment.center,
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment.center,
+                                                  children: [
+                                                    E.myText(
+                                                        HelperFunctions
+                                                            .getTimeAgo(
+                                                                upcomingRaces[
+                                                                        index]
+                                                                    .startTime),
+                                                        color: Colors.grey[350],
+                                                        context: context),
+                                                  ],
+                                                ),
+                                                title: Row(
+                                                  mainAxisAlignment:
+                                                      MainAxisAlignment
+                                                          .spaceEvenly,
+                                                  children: [
+                                                    SizedBox(
+                                                      width: 200,
+                                                      child: Column(
+                                                        children: [
+                                                          E.myText(
+                                                              upcomingRaces[
+                                                                      index]
+                                                                  .round,
+                                                              color:
+                                                                  Colors.white,
+                                                              context: context,
+                                                              fontSize: 16),
+                                                          E.myText(
+                                                              upcomingRaces[
+                                                                      index]
+                                                                  .title,
+                                                              color:
+                                                                  Colors.white,
+                                                              context: context,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .bold,
+                                                              fontSize: 18),
+                                                          E.myText(
+                                                              upcomingRaces[
+                                                                      index]
+                                                                  .city,
+                                                              color:
+                                                                  Colors.white,
+                                                              context: context,
+                                                              fontSize: 16),
+                                                        ],
+                                                      ),
+                                                    ),
+                                                  ],
+                                                ),
+                                                onTap: () {
+                                                  Navigator.of(context).push(
+                                                      MaterialPageRoute(
+                                                          builder: (ctx) =>
+                                                              CircuitDetail(
+                                                                  race: upcomingRaces[
+                                                                      index])));
+                                                },
+                                              ),
+                                            ),
                                           ),
                                         ),
-                                      ],
-                                    ),
-                                    onTap: () {
-                                      Navigator.of(context).push(MaterialPageRoute(
-                                          builder: (ctx) => CircuitDetail(race: upcomingRaces[index])));
-                                    },
+                                      ),
+                                    ],
                                   ),
-                                ),
-                              ),
-                            ),
-                          ),
+                                )
+                              : Center(
+                                  child: E.myText('No upcoming races',
+                                      color: Colors.white,
+                                      context: context,
+                                      fontSize: 16)),
+
+                          // Second tab: Past Races
+                          pastRaces.isNotEmpty
+                              ? ListView.builder(
+                                  itemCount: pastRaces.length,
+                                  itemBuilder: (ctx, index) => Stack(
+                                        children: [
+                                          ClipRRect(
+                                              borderRadius:
+                                                  const BorderRadius.all(
+                                                      Radius.circular(25)),
+                                              child: BackdropFilter(
+                                                  filter: ImageFilter.blur(
+                                                      sigmaX: 5, sigmaY: 5),
+                                                  child: Padding(
+                                                      padding:
+                                                          const EdgeInsets.all(
+                                                              3),
+                                                      child: Container(
+                                                        decoration: BoxDecoration(
+                                                            color: Colors.grey
+                                                                .withOpacity(
+                                                                    0.1),
+                                                            borderRadius:
+                                                                const BorderRadius
+                                                                    .all(
+                                                                    Radius.circular(
+                                                                        25))),
+                                                        child: ListTile(
+                                                          leading: Column(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .center,
+                                                            children: [
+                                                              E.myText(
+                                                                  HelperFunctions.getTimeAgo(
+                                                                      pastRaces[
+                                                                              index]
+                                                                          .startTime),
+                                                                  color: Colors
+                                                                          .grey[
+                                                                      350],
+                                                                  context:
+                                                                      context),
+                                                            ],
+                                                          ),
+                                                          title: Row(
+                                                            mainAxisAlignment:
+                                                                MainAxisAlignment
+                                                                    .spaceEvenly,
+                                                            children: [
+                                                              SizedBox(
+                                                                width: 200,
+                                                                child: Column(
+                                                                  children: [
+                                                                    E.myText(
+                                                                        pastRaces[
+                                                                                index]
+                                                                            .round,
+                                                                        color: Colors
+                                                                            .white,
+                                                                        context:
+                                                                            context,
+                                                                        fontSize:
+                                                                            16),
+                                                                    E.myText(
+                                                                        pastRaces[
+                                                                                index]
+                                                                            .title,
+                                                                        color: Colors
+                                                                            .white,
+                                                                        context:
+                                                                            context,
+                                                                        fontWeight:
+                                                                            FontWeight
+                                                                                .bold,
+                                                                        fontSize:
+                                                                            18),
+                                                                    E.myText(
+                                                                        pastRaces[
+                                                                                index]
+                                                                            .city,
+                                                                        color: Colors
+                                                                            .white,
+                                                                        context:
+                                                                            context,
+                                                                        fontSize:
+                                                                            16),
+                                                                  ],
+                                                                ),
+                                                              ),
+                                                            ],
+                                                          ),
+                                                          onTap: () {
+                                                            Navigator.of(
+                                                                    context)
+                                                                .push(MaterialPageRoute(
+                                                                    builder: (ctx) =>
+                                                                        RaceDetail(
+                                                                            race:
+                                                                                pastRaces[index])));
+                                                          },
+                                                        ),
+                                                      ))))
+                                        ],
+                                      ))
+                              : Center(
+                                  child: E.myText('No past races',
+                                      color: Colors.white,
+                                      context: context,
+                                      fontSize: 16)),
                         ],
                       ),
-                    )
-                        :  Center(child:  E.myText('No upcoming races', color: Colors.white, context: context, fontSize: 16)),
-
-                    // Second tab: Past Races
-                    pastRaces.isNotEmpty
-                        ? ListView.builder(
-                        itemCount: pastRaces.length,
-                        itemBuilder: (ctx, index) => Stack(
-                          children: [
-                            ClipRRect(
-                                borderRadius: const BorderRadius.all(Radius.circular(25)),
-                                child: BackdropFilter(
-                                    filter: ImageFilter.blur(sigmaX: 5, sigmaY: 5),
-                                    child: Padding(
-                                        padding: const EdgeInsets.all(3),
-                                        child: Container(
-                                          decoration: BoxDecoration(
-                                              color: Colors.grey.withOpacity(0.1),
-                                              borderRadius: const BorderRadius.all(Radius.circular(25))),
-                                          child: ListTile(
-                                            leading: Column(
-                                              mainAxisAlignment: MainAxisAlignment.center,
-                                              children: [
-                                                E.myText(HelperFunctions.getTimeAgo(pastRaces[index].startTime),
-                                                    color: Colors.grey[350],
-                                                    context: context),
-                                              ],
-                                            ),
-                                            title: Row(
-                                              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                                              children: [
-                                                SizedBox(
-                                                  width: 200,
-                                                  child: Column(
-                                                    children: [
-                                                      E.myText(pastRaces[index].round, color: Colors.white, context: context, fontSize: 16),
-                                                      E.myText(pastRaces[index].title, color: Colors.white, context: context, fontWeight: FontWeight.bold, fontSize: 18),
-                                                      E.myText(pastRaces[index].city, color: Colors.white, context: context, fontSize: 16),
-                                                    ],
-                                                  ),
-                                                ),
-                                              ],
-                                            ),
-                                            onTap: () {
-                                              Navigator.of(context).push(MaterialPageRoute(
-                                                  builder: (ctx) => RaceDetail(race: pastRaces[index])));
-                                            },
-                                          ),
-                                        ))))
-                          ],
-                        ))
-                        :  Center(child:  E.myText('No past races', color: Colors.white, context: context, fontSize: 16)),
-                  ],
-                ),
               ),
             ],
           ),
