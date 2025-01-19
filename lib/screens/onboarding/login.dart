@@ -1,7 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
-import 'package:pit_stop/utils/helper_functions.dart';
 import '../../providers/UserAuth.dart';
 import '../../main.dart';
 import '../../utils/colors.dart';

@@ -9,7 +9,6 @@ import '../../utils/helper_functions.dart';
 import '../../utils/image_constants.dart';
 import 'package:provider/provider.dart';
 
-import '../../widgets/cached_image.dart';
 
 class DrawerWidget extends StatefulWidget {
   const DrawerWidget({super.key});
@@ -31,14 +30,14 @@ class _DrawerWidgetState extends State<DrawerWidget> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
-      backgroundColor: Primary.orange,
+      backgroundColor: Color.fromARGB(247, 239, 108, 0),
       elevation: 10,
       width: E.width(context) * 0.5,
       child: Padding(
         padding: const EdgeInsets.fromLTRB(16, 38, 16, 0),
         child: Column(
           children: [
-            Container(
+            SizedBox(
               height: 100,
               width: 100,
               child: SvgPicture.asset(ImageConstant.logo),

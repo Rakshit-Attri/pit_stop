@@ -61,7 +61,7 @@ class HelperFunctions {
     if (url.contains("https://")) {
       return url;
     }
-    String result = Constants.baseUrl+"api"+ url;
+    String result = "${Constants.baseUrl}api$url";
     return result.replaceFirst("//media", "/media");
   }
 

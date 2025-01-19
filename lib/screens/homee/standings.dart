@@ -5,7 +5,6 @@ import 'package:pit_stop/models/stamdings_model.dart';
 
 import 'package:pit_stop/screens/homee/team_detail_screen.dart';
 import '../../networkCalls/myDio.dart';
-import '../../utils/colors.dart';
 import '../../utils/constants.dart';
 import '../../utils/essentials.dart';
 import 'driver_detail_screen.dart';
@@ -280,7 +279,7 @@ class _StandingsState extends State<Standings>
                                                             MainAxisAlignment
                                                                 .spaceBetween,
                                                         children: [
-                                                          Container(
+                                                          SizedBox(
                                                             width: 200,
                                                             child: Center(
                                                               child: Column(

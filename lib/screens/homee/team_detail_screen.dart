@@ -1,9 +1,9 @@
+
 import 'package:flutter/material.dart';
 import 'package:pit_stop/utils/essentials.dart';
 import 'package:pit_stop/utils/helper_functions.dart';
 
 import '../../models/stamdings_model.dart';
-import '../../utils/colors.dart';
 
 class TeamDetailScreen extends StatelessWidget {
   const TeamDetailScreen({super.key, required this.team});
@@ -42,7 +42,7 @@ class TeamDetailScreen extends StatelessWidget {
         ),
       ),
       body: Container(
-        padding: const EdgeInsets.all(20),
+        padding: const EdgeInsets.fromLTRB(20, 20, 0, 20),
         decoration: const BoxDecoration(
           gradient: RadialGradient(
             colors: [Colors.black87, Colors.black],
@@ -80,17 +80,16 @@ class TeamDetailScreen extends StatelessWidget {
                       _buildInfoRow(Icons.volcano, 'Poles', team.poles),
                       const SizedBox(height: 15),
                       _buildInfoRow(Icons.dnd_forwardslash, 'DNFs', team.dnfs),
+                      const SizedBox(height: 15),
                     ],
                   ),
                   Image.network(
                     HelperFunctions.getMediaFetchUrl(team.imageUrl),
-                    width: E.width(context) * 0.56,
-                    //height: 350,
-                    height: E.height(context) * 0.35,
+                    width: E.width(context) * 0.69,
+                    height: E.height(context) * 0.4,
                   ),
                 ],
               ),
-              const SizedBox(height: 15),
               _buildInfoRow(Icons.person, 'Driver 1', team.driver1),
               const SizedBox(height: 15),
               _buildInfoRow(Icons.person, 'Driver 2', team.driver2),

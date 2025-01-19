@@ -2,7 +2,6 @@ import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
-import 'package:pit_stop/models/schedule_model.dart';
 
 import '../../utils/colors.dart';
 import '../../utils/essentials.dart';
@@ -25,7 +24,7 @@ class _HomescreenState extends State<Homescreen> {
       backgroundColor: Colors.black,
       appBar: AppBar(
         elevation: 50,
-        title: Container(
+        title: SizedBox(
           height: 60,
           width: 60,
           child: SvgPicture.asset(ImageConstant.logo),
@@ -89,7 +88,7 @@ class _HomescreenState extends State<Homescreen> {
                                       color: Colors.red[900],
                                       fontSize: 24),
                                   const SizedBox(height: 40),
-                                  E.myText('331',
+                                  E.myText('429',
                                       context: context,
                                       color: Colors.deepOrange[600],
                                       fontSize: 20),
@@ -136,7 +135,7 @@ class _HomescreenState extends State<Homescreen> {
                                       color: Colors.deepOrange[400],
                                       fontSize: 24),
                                   const SizedBox(height: 50),
-                                  E.myText('331',
+                                  E.myText('608',
                                       context: context,
                                       color: Colors.deepOrange[600],
                                       fontSize: 20),
@@ -217,7 +216,7 @@ class _HomescreenState extends State<Homescreen> {
                       crossAxisAlignment: CrossAxisAlignment.center,
                       children: [
                         E.myText(
-                          '18/24 Grand Prix Completed',
+                          '23/24 Grand Prix Completed',
                           color: Colors.greenAccent[700],
                           context: context,
                           fontSize: 22,
@@ -231,7 +230,7 @@ class _HomescreenState extends State<Homescreen> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                E.myText('1082 Laps',
+                                E.myText('1387 Laps',
                                     context: context,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,
@@ -246,7 +245,7 @@ class _HomescreenState extends State<Homescreen> {
                             Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                E.myText('5,480.9 km',
+                                E.myText('7015.3 km',
                                     context: context,
                                     color: Colors.white,
                                     fontWeight: FontWeight.bold,

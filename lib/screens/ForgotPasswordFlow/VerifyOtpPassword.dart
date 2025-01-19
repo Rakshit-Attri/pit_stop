@@ -4,7 +4,6 @@ import '../../networkCalls/myDio.dart';
 import '../../utils/colors.dart';
 import '../../utils/constants.dart';
 import '../../utils/essentials.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 import '../../widgets/toast_manager.dart';
 import 'ChangePassword.dart';

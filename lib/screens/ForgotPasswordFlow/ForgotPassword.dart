@@ -6,7 +6,6 @@ import '../../utils/constants.dart';
 import '../../utils/essentials.dart';
 import '../../widgets/toast_manager.dart';
 import 'VerifyOtpPassword.dart';
-import 'package:flutter_svg/svg.dart';
 
 class ForgotScreen extends StatefulWidget {
   const ForgotScreen({super.key});

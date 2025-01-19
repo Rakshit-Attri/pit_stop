@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pit_stop/models/schedule_model.dart';
 
-import '../../utils/colors.dart';
 import '../../utils/essentials.dart';
 import '../../utils/helper_functions.dart';
 
@@ -42,7 +41,7 @@ class CircuitDetail extends StatelessWidget {
                   fontWeight: FontWeight.bold,
                 ),
               ),
-              const SizedBox(height: 15),
+              const SizedBox(height: 15),  
               Text(
                 race.track,
                 style: const TextStyle(color: Colors.white, fontSize: 30),
